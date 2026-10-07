@@ -2,130 +2,271 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#f7a928">
-<meta name="description" content="Anant Naad — Divine Sounds, Anytime. A living devotional listening experience.">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#15100a">
+<meta name="description" content="Anant Naad — Divine Sounds, Anytime. A cinematic, ad-free devotional radio experience with a custom player and living day-to-night ambience.">
+<meta property="og:title" content="Anant Naad — Divine Sounds, Anytime">
+<meta property="og:description" content="A living digital temple for devotional listening.">
+<meta property="og:type" content="website">
 <title>Anant Naad — Divine Sounds, Anytime</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,500&family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,500&family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
 <style>
-:root{--text:#fffaf0;--muted:rgba(255,250,240,.72);--muted2:rgba(255,250,240,.48);--accent:#ffb43b;--accent2:#fff0b0;--panel:rgba(30,17,9,.60);--stroke:rgba(255,240,203,.16)}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;min-height:100vh;color:var(--text);font-family:Inter,system-ui,sans-serif;background:radial-gradient(circle at 15% 20%,rgba(255,180,59,.17),transparent 28%),linear-gradient(145deg,#0f0804,#1d0d05 55%,#100703);transition:background .8s ease,color .5s ease}body.day{--text:#342414;--muted:rgba(52,36,20,.70);--muted2:rgba(52,36,20,.47);--accent:#bf8b2b;--accent2:#694914;--panel:rgba(255,251,240,.68);--stroke:rgba(100,76,26,.16);background:radial-gradient(circle at 15% 20%,rgba(244,198,87,.25),transparent 28%),linear-gradient(145deg,#f9f0df,#eee1c8)}body.aarti{--accent:#ff8b3d;--accent2:#ffd889;background:radial-gradient(circle at 22% 45%,rgba(255,128,38,.22),transparent 26%),linear-gradient(145deg,#160703,#2a0e05 55%,#100503)}body.night{--accent:#b8caff;--accent2:#ebf0ff;--muted:rgba(235,240,255,.72);--muted2:rgba(235,240,255,.47);--stroke:rgba(216,225,255,.14);background:radial-gradient(circle at 20% 14%,rgba(88,111,255,.24),transparent 27%),linear-gradient(145deg,#050711,#0d1230 58%,#04060e)}a{color:inherit;text-decoration:none}button{font:inherit}.wrap{width:min(1240px,calc(100% - 32px));margin:auto;position:relative;z-index:2}
-header{display:flex;align-items:center;justify-content:space-between;padding:22px 0}.brand{display:flex;align-items:center;gap:11px}.om{width:44px;height:44px;border:1px solid var(--stroke);border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.04);color:var(--accent2);font-size:24px}.brandname{font:700 13px Cinzel,serif;letter-spacing:.16em}.tagline{font-size:10px;color:var(--muted2);margin-top:3px}.nav{display:flex;gap:7px}.nav a,.nav button{padding:8px 12px;border:1px solid transparent;border-radius:999px;background:transparent;color:var(--muted);cursor:pointer}.nav a:hover,.nav button:hover{border-color:var(--stroke);background:rgba(255,255,255,.04);color:var(--text)}.nav .donate{border-color:var(--stroke);color:var(--text);background:rgba(255,255,255,.045)}
-.hero{display:grid;grid-template-columns:1fr 1.08fr;gap:48px;align-items:center;min-height:720px;padding:40px 0}.eyebrow{display:flex;align-items:center;gap:10px;color:var(--muted2);font-size:10px;letter-spacing:.16em}.dot{width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 7px color-mix(in srgb,var(--accent) 14%,transparent),0 0 18px var(--accent)}h1{margin:20px 0 14px;font:500 clamp(44px,6vw,78px)/.98 "Playfair Display",serif;letter-spacing:-.04em}h1 .small{display:block;font:500 .33em "Cormorant Garamond",serif;color:var(--accent2);letter-spacing:.02em;margin-bottom:15px}h1 .big{background:linear-gradient(110deg,var(--text),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}.desc{max-width:580px;margin:0;color:var(--muted);font:400 23px/1.2 "Cormorant Garamond",serif}.pill{display:inline-flex;align-items:center;gap:11px;margin-top:24px;padding:10px 14px;border:1px solid var(--stroke);border-radius:999px;background:rgba(255,255,255,.04);backdrop-filter:blur(12px)}.pill strong{display:block;font-size:12px}.pill small{display:block;margin-top:2px;color:var(--muted2);font-size:10px;letter-spacing:.1em;text-transform:uppercase}.focus{margin-top:17px;font-size:13px;color:var(--muted)}.focus span{color:var(--accent2);font-family:"Cormorant Garamond",serif;font-size:19px}.actions{display:flex;flex-wrap:wrap;gap:9px;margin-top:25px}.primary,.secondary{padding:13px 17px;border-radius:999px;cursor:pointer;border:1px solid var(--stroke);transition:.22s ease}.primary{border:0;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#241104;font-weight:700;box-shadow:0 14px 42px color-mix(in srgb,var(--accent) 22%,transparent)}.secondary{background:rgba(255,255,255,.04);color:var(--text)}.primary:hover,.secondary:hover{transform:translateY(-2px)}.note{margin-top:12px;color:var(--muted2);font-size:10px;line-height:1.55;max-width:600px}
-.stage{min-width:0}.orbbox{position:relative;height:390px;border-radius:34px;border:1px solid var(--stroke);overflow:hidden;background:radial-gradient(circle at 50% 50%,color-mix(in srgb,var(--accent) 20%,transparent),transparent 32%),linear-gradient(145deg,rgba(255,255,255,.08),rgba(255,255,255,.018));box-shadow:0 30px 90px rgba(0,0,0,.28)}.ring{position:absolute;border-radius:50%;border:1px solid color-mix(in srgb,var(--accent) 22%,transparent);left:50%;top:50%;transform:translate(-50%,-50%);animation:breathe 6s ease-in-out infinite}.r1{width:230px;height:230px}.r2{width:350px;height:350px;opacity:.55;animation-delay:-2s}.r3{width:500px;height:500px;opacity:.25;animation-delay:-4s}@keyframes breathe{50%{transform:translate(-50%,-50%) scale(1.05);opacity:.72}}.orb{position:absolute;inset:0;display:grid;place-content:center;text-align:center}.symbol{font-size:104px;color:var(--accent2);text-shadow:0 0 50px color-mix(in srgb,var(--accent) 46%,transparent)}.orbname{font:700 12px Cinzel,serif;letter-spacing:.18em}.orbsub{margin-top:6px;color:var(--muted2);font:400 18px "Cormorant Garamond",serif}.diya{position:absolute;font-size:34px;filter:drop-shadow(0 0 15px rgba(255,186,75,.34));animation:float 5s ease-in-out infinite}.d1{left:8%;top:23%}.d2{right:10%;top:18%;animation-delay:-1.5s}.d3{right:16%;bottom:13%;animation-delay:-2.5s}@keyframes float{50%{transform:translateY(-10px) rotate(-3deg)}}
-.player{margin-top:13px;padding:13px;border:1px solid var(--stroke);border-radius:23px;background:var(--panel);backdrop-filter:blur(18px)}.phead,.pfoot{display:flex;justify-content:space-between;gap:10px;align-items:center}.smallcap{font-size:9px;letter-spacing:.15em;color:var(--muted2);text-transform:uppercase}.phead strong{display:block;font-size:12px;margin-top:3px}.badge{padding:4px 8px;border:1px solid var(--stroke);border-radius:999px;font-size:9px}.iframewrap{margin-top:10px;aspect-ratio:16/9;border-radius:17px;overflow:hidden;background:#000}.iframewrap iframe{width:100%;height:100%;border:0;display:block}.pfoot{padding:8px 3px 0;color:var(--muted2);font-size:9px}
-.quick{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;border:1px solid var(--stroke);border-radius:21px;overflow:hidden;background:var(--stroke)}.quick>div{padding:17px 15px;background:var(--panel)}.quick strong{display:block;font-size:12px;margin-top:4px}
-section.content{margin-top:100px}.head{display:flex;justify-content:space-between;gap:30px;align-items:end}.head h2,.support h2,.wisdom h2{margin:8px 0 0;font:500 clamp(30px,3.8vw,48px)/1.04 "Playfair Display",serif}.head p{max-width:440px;color:var(--muted2);line-height:1.6;font-size:12px}
-.schedule{display:grid;grid-template-columns:repeat(4,1fr);gap:11px;margin-top:28px}.card{padding:20px;border:1px solid var(--stroke);border-radius:24px;background:var(--panel);min-height:190px}.card.active{box-shadow:0 20px 65px color-mix(in srgb,var(--accent) 10%,transparent)}.icon{font-size:32px}.cname{margin-top:13px;font:500 21px "Playfair Display",serif}.ctime{margin-top:3px;color:var(--muted2);font-size:10px}.mood{margin-top:18px;color:var(--accent2);font:400 18px "Cormorant Garamond",serif}
-.wisdom{position:relative;padding:34px;border:1px solid var(--stroke);border-radius:31px;background:radial-gradient(circle at 80% 30%,color-mix(in srgb,var(--accent) 13%,transparent),transparent 29%),var(--panel);overflow:hidden}.wisdom p{margin:17px 0 4px;color:var(--muted);font:400 21px/1.3 "Cormorant Garamond",serif}.wisdom small{font-size:10px;color:var(--muted2)}.qmark{position:absolute;right:24px;top:-24px;font:180px Georgia,serif;color:color-mix(in srgb,var(--accent) 11%,transparent)}
-.groups{display:grid;grid-template-columns:repeat(4,1fr);gap:11px;margin-top:28px}.group{padding:21px;border:1px solid var(--stroke);border-radius:24px;background:var(--panel)}.gtitle{font:500 21px "Playfair Display",serif}.gtitle span{color:var(--accent);font:700 11px Inter,sans-serif;letter-spacing:.08em;margin-right:6px}.chips{display:flex;flex-direction:column;gap:7px;margin-top:16px}.chip{padding:9px 10px;border-radius:13px;background:rgba(255,255,255,.035);color:var(--muted);font-size:11px;border:1px solid transparent}
-.support{display:flex;justify-content:space-between;gap:24px;align-items:center;padding:30px;border:1px solid var(--stroke);border-radius:30px;background:linear-gradient(135deg,color-mix(in srgb,var(--accent) 10%,transparent),var(--panel))}.support p{max-width:620px;color:var(--muted);font-size:12px;line-height:1.6}.support-note{color:var(--muted2);font:400 15px "Cormorant Garamond",serif}
-footer{display:flex;justify-content:space-between;align-items:center;gap:20px;margin-top:88px;padding:24px 0 32px;border-top:1px solid var(--stroke)}.flinks{display:flex;gap:6px}.flinks button,.flinks a{border:0;background:transparent;color:var(--muted2);cursor:pointer;font-size:11px;padding:6px}.creator{display:flex;flex-direction:column;align-items:flex-end;gap:3px;color:var(--muted2);font-size:9px}.creator strong{color:var(--accent2);font:italic 500 15px "Cormorant Garamond",serif}
-.backdrop{position:fixed;inset:0;z-index:99;display:grid;place-items:center;padding:18px;background:rgba(2,3,5,.76);backdrop-filter:blur(11px)}.backdrop[hidden]{display:none}.modal{position:relative;width:min(650px,100%);max-height:88vh;overflow:auto;padding:29px;border:1px solid var(--stroke);border-radius:28px;background:#1c1009;box-shadow:0 35px 110px rgba(0,0,0,.5)}body.day .modal{background:#fffbf1;color:#342414}.close{position:absolute;right:13px;top:13px;width:38px;height:38px;border-radius:50%;border:1px solid var(--stroke);background:rgba(255,255,255,.04);color:inherit;cursor:pointer;font-size:22px}.modal h2{margin:8px 0 17px;font:500 38px "Playfair Display",serif}.donation{display:grid;grid-template-columns:190px 1fr;gap:22px;align-items:center}.donation img{width:190px;height:190px;object-fit:contain;border-radius:17px;padding:10px;background:#fff}.modal p{color:var(--muted);font-size:12px;line-height:1.7}.upi{padding:12px;border:1px solid var(--stroke);border-radius:13px;background:rgba(255,255,255,.04);font:11px ui-monospace,monospace;word-break:break-all}.modal .primary{display:inline-flex;margin-top:10px}
-@media(max-width:1020px){.hero{grid-template-columns:1fr;padding-top:20px}.stage{max-width:780px;width:100%;margin:auto}.schedule,.groups{grid-template-columns:repeat(2,1fr)}.quick{grid-template-columns:repeat(2,1fr)}footer{flex-direction:column;text-align:center}.creator{align-items:center}.head{flex-direction:column;align-items:flex-start}}
-@media(max-width:680px){.wrap{width:min(100% - 22px,1240px)}.nav a{display:none}.hero{padding:10px 0 15px;min-height:auto}.desc{font-size:21px}.orbbox{height:310px}.r1{width:190px;height:190px}.r2{width:280px;height:280px}.r3{width:380px;height:380px}.symbol{font-size:78px}.schedule,.groups,.quick{grid-template-columns:1fr}.content{margin-top:72px!important}.support{flex-direction:column;align-items:flex-start}.donation{grid-template-columns:1fr}.donation img{width:210px;height:210px}.phead,.pfoot{flex-direction:column;align-items:flex-start}}
+:root{
+ --bg:#0b0805;--bg2:#1c1008;--ink:#fff9ed;--dim:rgba(255,249,237,.68);--faint:rgba(255,249,237,.40);
+ --gold:#f4b341;--gold2:#ffe2a0;--line:rgba(255,231,184,.14);--glass:rgba(25,15,8,.58);
+ --shadow:0 42px 120px rgba(0,0,0,.34)
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;color:var(--ink);background:
+radial-gradient(circle at 18% 13%,rgba(244,179,65,.16),transparent 26%),
+radial-gradient(circle at 84% 74%,rgba(255,219,135,.06),transparent 30%),
+linear-gradient(145deg,var(--bg),var(--bg2));font-family:"DM Sans",Inter,system-ui,sans-serif;min-height:100vh;overflow-x:hidden;transition:background 1s,color .7s}
+body.day{--bg:#f4ecdd;--bg2:#eadcc5;--ink:#302111;--dim:rgba(48,33,17,.69);--faint:rgba(48,33,17,.44);--gold:#b9821e;--gold2:#704b10;--line:rgba(83,61,23,.15);--glass:rgba(255,251,242,.68);background:radial-gradient(circle at 16% 14%,rgba(243,197,80,.23),transparent 29%),linear-gradient(145deg,var(--bg),var(--bg2))}
+body.aarti{--gold:#ff8f3e;--gold2:#ffd68e;background:radial-gradient(circle at 22% 45%,rgba(255,119,31,.2),transparent 28%),linear-gradient(145deg,#120503,#2b0f05 55%,#090303)}
+body.night{--bg:#050711;--bg2:#0d1533;--ink:#edf2ff;--dim:rgba(237,242,255,.69);--faint:rgba(237,242,255,.43);--gold:#b6c9ff;--gold2:#e8efff;--line:rgba(218,228,255,.13);--glass:rgba(8,13,31,.68);background:radial-gradient(circle at 17% 11%,rgba(80,103,255,.2),transparent 30%),linear-gradient(145deg,var(--bg),var(--bg2))}
+a{color:inherit;text-decoration:none}button{font:inherit}.wrap{width:min(1250px,calc(100% - 28px));margin:auto;position:relative;z-index:3}
+
+.noise{position:fixed;inset:-50%;z-index:1;pointer-events:none;opacity:.04;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 180 180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E");mix-blend-mode:soft-light}
+.sky{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}.stars{position:absolute;inset:0;opacity:0;transition:opacity 1s;background-image:radial-gradient(circle,rgba(255,255,255,.60) 1px,transparent 1.25px);background-size:110px 110px}.moon{position:absolute;width:220px;height:220px;border-radius:50%;right:-75px;top:70px;opacity:0;transition:opacity 1s;box-shadow:0 0 80px rgba(183,201,255,.16);background:radial-gradient(circle at 34% 34%,#f6f8ff,rgba(217,226,255,.85) 36%,rgba(150,170,230,.18) 61%,transparent 62%)}.sun{position:absolute;width:260px;height:260px;border-radius:50%;left:-100px;top:18%;opacity:.20;background:radial-gradient(circle,#ffe6a0 0 24%,rgba(255,192,67,.38) 31%,transparent 68%);filter:blur(1px)}body.night .stars,body.night .moon{opacity:.72}
+.rays{position:absolute;width:620px;height:620px;left:50%;top:42%;transform:translate(-50%,-50%);opacity:.20;animation:rotate 36s linear infinite;background:conic-gradient(from 0deg,transparent 0 7deg,rgba(255,211,127,.16) 8deg,transparent 12deg 27deg,rgba(255,211,127,.11) 28deg,transparent 33deg 50deg,rgba(255,211,127,.10) 51deg,transparent 57deg 360deg);mask-image:radial-gradient(circle,black 0 24%,transparent 69%)}body.day .rays{opacity:.10}body.night .rays{opacity:.04}@keyframes rotate{to{transform:translate(-50%,-50%) rotate(360deg)}}
+
+header{display:flex;align-items:center;justify-content:space-between;padding:20px 0}.brand{display:flex;align-items:center;gap:11px}.brand-orb{width:44px;height:44px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;background:rgba(255,255,255,.035);color:var(--gold2);font-size:23px;box-shadow:0 0 50px color-mix(in srgb,var(--gold) 10%,transparent)}.brand-main{display:block;font:700 13px Cinzel,serif;letter-spacing:.17em}.brand-sub{display:block;color:var(--faint);font-size:9px;letter-spacing:.08em;margin-top:3px}.nav{display:flex;gap:4px}.nav a,.nav button{border:1px solid transparent;background:transparent;color:var(--dim);padding:8px 11px;border-radius:999px;cursor:pointer}.nav a:hover,.nav button:hover{border-color:var(--line);background:rgba(255,255,255,.035);color:var(--ink)}.nav .donate{border-color:var(--line);background:rgba(255,255,255,.045);color:var(--ink)}
+
+.hero{min-height:720px;display:grid;grid-template-columns:1fr 1.02fr;align-items:center;gap:55px;padding:42px 0 34px}.eyebrow{display:flex;align-items:center;gap:10px;color:var(--faint);font-size:9px;letter-spacing:.17em;text-transform:uppercase}.live-dot{width:8px;height:8px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 7px color-mix(in srgb,var(--gold) 12%,transparent),0 0 18px var(--gold)}
+h1{margin:20px 0 14px;font:500 clamp(50px,6vw,84px)/.94 "Playfair Display",serif;letter-spacing:-.045em}.h1-kicker{display:block;font:500 .31em "Cormorant Garamond",serif;color:var(--gold2);letter-spacing:.03em;margin-bottom:14px}.h1-main{background:linear-gradient(110deg,var(--ink),var(--gold2));-webkit-background-clip:text;background-clip:text;color:transparent}.hero-copy .lede{max-width:610px;margin:0;color:var(--dim);font:400 24px/1.18 "Cormorant Garamond",serif}
+.mood-chip{display:inline-flex;align-items:center;gap:10px;margin-top:24px;padding:10px 13px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.035);backdrop-filter:blur(14px)}.mood-icon{font-size:18px}.mood-chip strong{display:block;font-size:12px}.mood-chip small{display:block;color:var(--faint);font-size:9px;letter-spacing:.12em;text-transform:uppercase;margin-top:2px}.focus{margin-top:16px;color:var(--dim);font-size:11px}.focus b{color:var(--gold2);font:400 20px "Cormorant Garamond",serif}
+.actions{display:flex;flex-wrap:wrap;gap:9px;margin-top:24px}.primary,.secondary{border-radius:999px;padding:13px 16px;border:1px solid var(--line);cursor:pointer;transition:.22s ease}.primary{border:0;color:#251505;background:linear-gradient(135deg,var(--gold),var(--gold2));font-weight:700;box-shadow:0 15px 48px color-mix(in srgb,var(--gold) 20%,transparent)}.secondary{background:rgba(255,255,255,.035);color:var(--ink)}.primary:hover,.secondary:hover{transform:translateY(-2px)}
+.hint{margin-top:12px;color:var(--faint);font-size:9px;line-height:1.55}
+
+.experience{min-width:0}.sanctum{position:relative;height:425px;border-radius:34px;border:1px solid var(--line);overflow:hidden;background:radial-gradient(circle at 50% 50%,color-mix(in srgb,var(--gold) 18%,transparent),transparent 29%),linear-gradient(145deg,rgba(255,255,255,.065),rgba(255,255,255,.012));box-shadow:var(--shadow)}
+.mandala{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:340px;height:340px;border-radius:50%;border:1px solid color-mix(in srgb,var(--gold) 31%,transparent);box-shadow:0 0 70px color-mix(in srgb,var(--gold) 8%,transparent),inset 0 0 80px color-mix(in srgb,var(--gold) 7%,transparent);animation:slowspin 40s linear infinite}
+.mandala:before,.mandala:after{content:"";position:absolute;inset:28px;border-radius:50%;border:1px dashed color-mix(in srgb,var(--gold) 18%,transparent)}.mandala:after{inset:67px;border-style:solid;transform:rotate(45deg)}@keyframes slowspin{to{transform:translate(-50%,-50%) rotate(360deg)}}
+.lotus{position:absolute;left:50%;top:50%;transform:translate(-50%,-57%);width:200px;height:200px}.lotus g{transform-origin:center}.lotus .petal{fill:none;stroke:color-mix(in srgb,var(--gold2) 80%,transparent);stroke-width:1.2}.lotus .petal2{opacity:.46}.center-sigil{position:absolute;inset:0;display:grid;place-items:center;text-align:center}.sigil{font-size:76px;color:var(--gold2);text-shadow:0 0 55px color-mix(in srgb,var(--gold) 42%,transparent);line-height:1}.sigil-caption{margin-top:4px;font:700 10px Cinzel,serif;letter-spacing:.18em}.sigil-sub{margin-top:3px;color:var(--faint);font:400 17px "Cormorant Garamond",serif}
+.scene-label{position:absolute;top:16px;left:17px;padding:6px 9px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.03);font-size:9px;color:var(--dim);letter-spacing:.09em}.orn{position:absolute;color:color-mix(in srgb,var(--gold) 65%,transparent);font-size:24px;animation:float 5s ease-in-out infinite}.o1{left:9%;top:18%}.o2{right:10%;top:13%;animation-delay:-1.4s}.o3{right:12%;bottom:12%;animation-delay:-2.3s}.o4{left:15%;bottom:18%;animation-delay:-3s}@keyframes float{50%{transform:translateY(-10px) rotate(-3deg)}}
+
+.player{margin-top:12px;padding:15px;border:1px solid var(--line);border-radius:23px;background:var(--glass);backdrop-filter:blur(18px)}
+.player-top{display:flex;align-items:center;justify-content:space-between;gap:12px}.now-label{font-size:9px;letter-spacing:.15em;color:var(--faint);text-transform:uppercase}.track-title{font-size:13px;font-weight:700;margin-top:4px}.track-artist{font-size:9px;color:var(--faint);margin-top:2px}.source-pill{font-size:9px;color:var(--dim);padding:5px 8px;border-radius:999px;border:1px solid var(--line)}
+.wave{height:42px;margin:13px 0 9px;display:flex;align-items:center;justify-content:center;gap:4px}.bar{width:3px;border-radius:999px;background:linear-gradient(var(--gold2),var(--gold));height:10px;opacity:.45;animation:wave 1.15s ease-in-out infinite;animation-play-state:paused}.bar:nth-child(2){height:20px;animation-delay:-.7s}.bar:nth-child(3){height:30px;animation-delay:-.3s}.bar:nth-child(4){height:18px;animation-delay:-.9s}.bar:nth-child(5){height:34px;animation-delay:-.45s}.bar:nth-child(6){height:26px;animation-delay:-.1s}.bar:nth-child(7){height:36px;animation-delay:-.75s}.bar:nth-child(8){height:21px;animation-delay:-.2s}.bar:nth-child(9){height:31px;animation-delay:-1s}.bar:nth-child(10){height:16px;animation-delay:-.4s}.bar:nth-child(11){height:28px;animation-delay:-.82s}.bar:nth-child(12){height:12px;animation-delay:-.18s}.is-playing .bar{animation-play-state:running;opacity:.92}@keyframes wave{50%{transform:scaleY(.32)}}
+.progress{height:7px;border-radius:999px;background:rgba(255,255,255,.06);overflow:hidden;cursor:pointer}.progress-fill{height:100%;width:0;border-radius:999px;background:linear-gradient(90deg,var(--gold),var(--gold2))}
+.time{display:flex;justify-content:space-between;color:var(--faint);font-size:9px;margin-top:6px}.controls{display:flex;align-items:center;gap:8px;margin-top:12px}.circle{width:39px;height:39px;border-radius:50%;border:1px solid var(--line);background:rgba(255,255,255,.03);color:var(--ink);cursor:pointer}.circle.main{width:49px;height:49px;border:0;background:linear-gradient(135deg,var(--gold),var(--gold2));color:#251505;font-weight:800}.volume{margin-left:auto;display:flex;gap:7px;align-items:center;color:var(--faint);font-size:9px}.volume input{width:100px;accent-color:var(--gold)}.pfoot{margin-top:10px;display:flex;justify-content:space-between;gap:10px;color:var(--faint);font-size:9px}
+.queue{margin-top:11px;padding-top:10px;border-top:1px solid var(--line)}.queue-title{font-size:9px;letter-spacing:.15em;color:var(--faint);text-transform:uppercase}.queue-list{display:flex;gap:6px;overflow:auto;margin-top:7px;padding-bottom:2px}.qitem{flex:0 0 auto;max-width:185px;border:1px solid var(--line);border-radius:12px;background:rgba(255,255,255,.02);color:var(--dim);padding:8px 9px;text-align:left;cursor:pointer;font-size:9px}.qitem.active{color:var(--gold2);border-color:color-mix(in srgb,var(--gold) 32%,var(--line))}
+
+.facts{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;margin-top:12px;border:1px solid var(--line);border-radius:20px;overflow:hidden;background:var(--line)}.fact{background:var(--glass);padding:15px 14px}.fact .small{font-size:8px;letter-spacing:.13em;color:var(--faint);text-transform:uppercase}.fact strong{display:block;font-size:12px;margin-top:4px}
+
+.section{margin-top:105px}.section-head{display:flex;justify-content:space-between;align-items:end;gap:30px}.section-kicker{font-size:9px;letter-spacing:.16em;color:var(--faint);text-transform:uppercase}.section-head h2{margin:7px 0 0;font:500 clamp(30px,3.8vw,50px)/1.02 "Playfair Display",serif}.section-head p{max-width:455px;color:var(--faint);font-size:11px;line-height:1.7}
+
+.ritual-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:28px}.ritual{padding:20px;border:1px solid var(--line);border-radius:24px;background:var(--glass);min-height:215px;position:relative;overflow:hidden;transition:.25s ease}.ritual:hover{transform:translateY(-4px);border-color:color-mix(in srgb,var(--gold) 30%,var(--line))}.ritual.active{box-shadow:0 20px 65px color-mix(in srgb,var(--gold) 11%,transparent)}.ritual-icon{font-size:31px}.ritual-title{margin-top:13px;font:500 21px "Playfair Display",serif}.ritual-time{margin-top:3px;color:var(--faint);font-size:9px}.ritual-mood{margin-top:18px;color:var(--gold2);font:400 18px "Cormorant Garamond",serif}.ritual-note{margin-top:10px;color:var(--faint);font-size:9px;line-height:1.5}
+
+.quote{position:relative;padding:35px;border-radius:31px;border:1px solid var(--line);overflow:hidden;background:radial-gradient(circle at 80% 28%,color-mix(in srgb,var(--gold) 12%,transparent),transparent 29%),var(--glass)}.quote h2{max-width:920px;margin:8px 0 0;font:500 clamp(28px,3.7vw,50px)/1.08 "Cormorant Garamond",serif}.quote p{margin:13px 0 4px;color:var(--dim);font:400 19px "Cormorant Garamond",serif}.quote small{font-size:9px;color:var(--faint)}.qmark{position:absolute;right:24px;top:-30px;font:180px Georgia,serif;color:color-mix(in srgb,var(--gold) 10%,transparent)}
+
+.pantheon{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:28px}.pantheon-group{padding:20px;border:1px solid var(--line);border-radius:24px;background:var(--glass)}.pantheon-title{font:500 21px "Playfair Display",serif}.pantheon-count{font:700 10px Inter,sans-serif;color:var(--gold);margin-right:6px}.chips{display:flex;flex-direction:column;gap:7px;margin-top:15px}.chip{padding:9px;border-radius:12px;background:rgba(255,255,255,.025);color:var(--dim);font-size:10px}
+
+.support{display:flex;justify-content:space-between;align-items:center;gap:25px;padding:30px;border:1px solid var(--line);border-radius:30px;background:linear-gradient(135deg,color-mix(in srgb,var(--gold) 9%,transparent),var(--glass))}.support h2{margin:8px 0 0;font:500 clamp(29px,3.5vw,46px) "Playfair Display",serif}.support p{max-width:650px;color:var(--dim);font-size:11px;line-height:1.6}.support .upi{color:var(--gold2);font:400 15px "Cormorant Garamond",serif}
+
+footer{display:flex;justify-content:space-between;align-items:center;gap:20px;margin:84px 0 0;padding:25px 0 33px;border-top:1px solid var(--line)}.footlinks{display:flex;gap:4px;flex-wrap:wrap;justify-content:center}.footlinks a,.footlinks button{border:0;background:transparent;color:var(--faint);padding:6px;font-size:9px;cursor:pointer}.creator{display:flex;flex-direction:column;align-items:flex-end;gap:3px;color:var(--faint);font-size:8px}.creator strong{color:var(--gold2);font:italic 500 15px "Cormorant Garamond",serif}
+
+.modalbg{position:fixed;inset:0;z-index:50;display:grid;place-items:center;padding:18px;background:rgba(2,3,5,.78);backdrop-filter:blur(12px)}.modalbg[hidden]{display:none}.modal{width:min(700px,100%);max-height:89vh;overflow:auto;padding:30px;border:1px solid var(--line);border-radius:28px;background:#1b1008;box-shadow:0 40px 120px rgba(0,0,0,.55)}body.day .modal{background:#fffbf2;color:#332312}.close{float:right;width:36px;height:36px;border-radius:50%;border:1px solid var(--line);background:rgba(255,255,255,.04);color:inherit;cursor:pointer;font-size:21px}.modal h2{margin:9px 0 18px;font:500 36px "Playfair Display",serif}.modal p{color:var(--dim);font-size:11px;line-height:1.75}.donation-grid{display:grid;grid-template-columns:185px 1fr;align-items:center;gap:22px}.donation-grid img{width:185px;height:185px;background:#fff;border-radius:17px;padding:9px}.upi-box{padding:12px;border:1px solid var(--line);border-radius:12px;background:rgba(255,255,255,.03);font:10px ui-monospace,monospace;word-break:break-all}.modal .primary{display:inline-flex;margin-top:11px}.source{padding:10px 11px;border:1px solid var(--line);border-radius:13px;background:rgba(255,255,255,.02);margin-top:8px;color:var(--dim);font-size:9px}.source a{text-decoration:underline;color:var(--gold2)}
+@media(max-width:1000px){.hero{grid-template-columns:1fr}.experience{max-width:860px;width:100%;margin:auto}.ritual-grid,.pantheon{grid-template-columns:repeat(2,1fr)}.facts{grid-template-columns:repeat(2,1fr)}.section-head{flex-direction:column;align-items:flex-start}footer{flex-direction:column}.creator{align-items:center}}
+@media(max-width:680px){.wrap{width:min(100% - 20px,1240px)}.nav a,.nav .donate{display:none}.hero{padding-top:10px;min-height:auto;gap:26px}.hero-copy .lede{font-size:21px}h1{font-size:clamp(43px,13vw,68px)}.sanctum{height:305px}.mandala{width:250px;height:250px}.lotus{transform:translate(-50%,-55%) scale(.8)}.sigil{font-size:70px}.player .volume{width:100%;margin:2px 0 0}.phead,.pfoot{align-items:flex-start;flex-direction:column}.ritual-grid,.pantheon,.facts{grid-template-columns:1fr}.donation-grid{grid-template-columns:1fr}.donation-grid img{width:210px;height:210px}.support{flex-direction:column;align-items:flex-start}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
 </style>
 </head>
 <body>
+<div class="noise"></div>
+<div class="sky"><div class="stars"></div><div class="moon"></div><div class="sun"></div><div class="rays"></div></div>
+
 <div class="wrap">
 <header>
-  <a class="brand" href="#home"><span class="om">ॐ</span><span><span class="brandname">ANANT NAAD</span><span class="tagline">Divine Sounds, Anytime</span></span></a>
-  <nav class="nav"><a href="#radio">Radio</a><a href="#schedule">Schedule</a><a href="#wisdom">Wisdom</a><a href="#deities">Deities</a><button id="help">Help</button><button class="donate" id="donate">Donate</button></nav>
+<a class="brand" href="#home"><span class="brand-orb">ॐ</span><span><span class="brand-main">ANANT NAAD</span><span class="brand-sub">DIVINE SOUNDS, ANYTIME</span></span></a>
+<nav class="nav"><a href="#radio">Radio</a><a href="#journey">Journey</a><a href="#wisdom">Wisdom</a><a href="#deities">Deities</a><button id="help">Help</button><button class="donate" id="donate">Donate</button></nav>
 </header>
+
 <main id="home">
 <section class="hero" id="radio">
-<div>
-<div class="eyebrow"><span class="dot"></span><span>24×7 DEVOTIONAL RADIO</span><span>•</span><span id="clock">--:--</span></div>
-<h1><span class="small">A living digital temple for</span><span class="big">devotional listening.</span></h1>
-<p class="desc" id="subtitle">Your day, your mood, your divine soundscape.</p>
-<div class="pill"><span id="sessionIcon">🌅</span><span><strong id="session">Morning Blessings</strong><small id="mood">Awaken • Chant • Begin</small></span></div>
-<div class="focus">Today's divine focus: <span id="focus">Hanuman • Shiva • Ganesha • Surya</span></div>
-<div class="actions"><button class="primary" id="play">▶ <span id="playText">Play Anant Naad</span></button><button class="secondary" id="share">↗ Share</button></div>
-<div class="note" id="status">Tap Play once to start. The music stays inside YouTube's official embedded player.</div>
+<div class="hero-copy">
+<div class="eyebrow"><span class="live-dot"></span><span>24×7 DEVOTIONAL RADIO</span><span>•</span><span id="clock">--:--</span></div>
+<h1><span class="h1-kicker">A living digital temple for</span><span class="h1-main">devotional listening.</span></h1>
+<p class="lede" id="subtitle">A quieter place to begin, breathe, celebrate, and rest.</p>
+<div class="mood-chip"><span class="mood-icon" id="moodIcon">🌅</span><span><strong id="session">Morning Blessings</strong><small id="mood">Awaken • Chant • Begin</small></span></div>
+<div class="focus">Divine focus: <b id="focus">Hanuman • Shiva • Ganesha • Surya</b></div>
+<div class="actions"><button class="primary" id="play">▶ <span id="playText">Enter the soundscape</span></button><button class="secondary" id="share">↗ Share</button></div>
+<div class="hint" id="hint">No YouTube layer. No video feed. The player is designed around direct audio.</div>
 </div>
-<div class="stage">
-<div class="orbbox"><div class="ring r1"></div><div class="ring r2"></div><div class="ring r3"></div><div class="orb"><div class="symbol" id="symbol">ॐ</div><div class="orbname">ANANT NAAD</div><div class="orbsub">Divine Sounds, Anytime</div></div><div class="diya d1">🪔</div><div class="diya d2">🪔</div><div class="diya d3">🪔</div></div>
-<div class="player"><div class="phead"><div><span class="smallcap">NOW PLAYING</span><strong id="now">Choose Play to begin devotional listening</strong></div><span class="badge">YouTube</span></div><div class="iframewrap"><iframe id="yt" title="Anant Naad devotional YouTube player" allow="autoplay; encrypted-media; picture-in-picture; web-share" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe></div><div class="pfoot"><span id="playerState">Ready</span><span id="next">Next mood — --:--:--</span></div></div>
+
+<div class="experience">
+<div class="sanctum">
+<div class="scene-label" id="sceneLabel">MORNING RITUAL</div>
+<div class="mandala"></div>
+<svg class="lotus" viewBox="0 0 200 200" aria-hidden="true">
+<g class="petal">
+<path d="M100 100 C62 78 61 44 100 18 C139 44 138 78 100 100Z"/>
+<path d="M100 100 C123 62 151 55 175 72 C159 105 133 117 100 100Z"/>
+<path d="M100 100 C77 62 49 55 25 72 C41 105 67 117 100 100Z"/>
+<path d="M100 100 C123 86 153 91 168 115 C142 134 119 126 100 100Z"/>
+<path d="M100 100 C77 86 47 91 32 115 C58 134 81 126 100 100Z"/>
+</g>
+<g class="petal petal2">
+<circle cx="100" cy="100" r="72"/><circle cx="100" cy="100" r="45"/>
+<path d="M100 23 Q135 100 100 177 Q65 100 100 23Z"/>
+<path d="M23 100 Q100 65 177 100 Q100 135 23 100Z"/>
+</g>
+</svg>
+<div class="center-sigil"><div><div class="sigil" id="sigil">ॐ</div><div class="sigil-caption">ANANT NAAD</div><div class="sigil-sub" id="sigilSub">Divine Sounds, Anytime</div></div></div>
+<div class="orn o1">🪔</div><div class="orn o2">🪔</div><div class="orn o3">✦</div><div class="orn o4">✦</div>
+</div>
+
+<div class="player" id="playerCard">
+<div class="player-top"><div><div class="now-label">NOW PLAYING</div><div class="track-title" id="trackTitle">Ready for the divine soundscape</div><div class="track-artist" id="trackArtist">Tap Play to begin</div></div><span class="source-pill">DIRECT AUDIO</span></div>
+<audio id="audio" preload="metadata" playsinline></audio>
+<div class="wave" id="wave" aria-hidden="true">
+<div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div>
+</div>
+<div class="progress" id="progress" aria-label="Seek position"><div class="progress-fill" id="fill"></div></div>
+<div class="time"><span id="elapsed">0:00</span><span id="duration">0:00</span></div>
+<div class="controls"><button class="circle" id="prev" aria-label="Previous">⏮</button><button class="circle main" id="bigPlay" aria-label="Play or pause">▶</button><button class="circle" id="nextBtn" aria-label="Next">⏭</button><button class="circle" id="shuffle" aria-label="Toggle shuffle">🔀</button><div class="volume"><span>VOL</span><input id="volume" type="range" min="0" max="1" step=".01" value=".85" aria-label="Volume"></div></div>
+<div class="pfoot"><span id="status">Ready</span><span id="nextMood">Next mood — --:--:--</span></div>
+<div class="queue"><div class="queue-title">CURATED QUEUE</div><div class="queue-list" id="queue"></div></div>
+</div>
 </div>
 </section>
 
-<section class="quick"><div><span class="smallcap">CURRENT SESSION</span><strong id="q1">Morning Blessings</strong></div><div><span class="smallcap">NEXT SESSION</span><strong id="q2">Afternoon Devotion</strong></div><div><span class="smallcap">PLAYBACK</span><strong id="q3">Ready to play</strong></div><div><span class="smallcap">SUPPORT</span><strong>UPI enabled</strong></div></section>
+<section class="facts">
+<div class="fact"><span class="small">CURRENT SESSION</span><strong id="f1">Morning Blessings</strong></div>
+<div class="fact"><span class="small">NEXT SESSION</span><strong id="f2">Afternoon Devotion</strong></div>
+<div class="fact"><span class="small">PLAYBACK</span><strong id="f3">Ready</strong></div>
+<div class="fact"><span class="small">EXPERIENCE</span><strong>Ad-free direct audio</strong></div>
+</section>
 
-<section class="content" id="schedule"><div class="head"><div><span class="smallcap">DAY RHYTHM</span><h2>Four moods. One continuous journey.</h2></div><p>The experience follows the visitor's local time and changes its visual atmosphere automatically.</p></div><div class="schedule" id="cards"></div></section>
+<section class="section" id="journey">
+<div class="section-head"><div><span class="section-kicker">THE DAILY JOURNEY</span><h2>Four moods. One sacred rhythm.</h2></div><p>The interface, atmosphere, deity focus, and audio queue evolve automatically with the listener's local time.</p></div>
+<div class="ritual-grid" id="rituals"></div>
+</section>
 
-<section class="content" id="wisdom"><div class="wisdom"><span class="smallcap">DAILY WISDOM</span><h2 id="quote">ॐ नमः शिवाय</h2><p id="translation">A quiet remembrance for a quieter mind.</p><small id="source">Anant Naad • Daily Reflection</small><div class="qmark">“</div></div></section>
+<section class="section" id="wisdom">
+<div class="quote"><span class="section-kicker">DAILY WISDOM</span><h2 id="quoteText">ॐ नमः शिवाय</h2><p id="quoteTranslation">A simple remembrance for a quieter mind.</p><small id="quoteSource">Anant Naad • Daily Reflection</small><div class="qmark">“</div></div>
+</section>
 
-<section class="content" id="deities"><div class="head"><div><span class="smallcap">VEDIC PANTHEON</span><h2>33 sacred forms, thoughtfully presented.</h2></div><p>One traditional Vedic enumeration. Names and groupings vary across Hindu texts and traditions.</p></div><div class="groups"><div class="group"><div class="gtitle"><span>08</span>Vasus</div><div class="chips" id="vasus"></div></div><div class="group"><div class="gtitle"><span>11</span>Rudras</div><div class="chips" id="rudras"></div></div><div class="group"><div class="gtitle"><span>12</span>Adityas</div><div class="chips" id="adityas"></div></div><div class="group"><div class="gtitle"><span>02</span>Completing forms</div><div class="chips" id="completing"></div></div></div></section>
+<section class="section" id="deities">
+<div class="section-head"><div><span class="section-kicker">VEDIC PANTHEON</span><h2>33 sacred forms, thoughtfully presented.</h2></div><p>One traditional Vedic enumeration: 8 Vasus, 11 Rudras, 12 Adityas, plus Indra and Prajapati. Hindu texts use other enumerations too.</p></div>
+<div class="pantheon">
+<div class="pantheon-group"><div class="pantheon-title"><span class="pantheon-count">08</span>Vasus</div><div class="chips" id="vasus"></div></div>
+<div class="pantheon-group"><div class="pantheon-title"><span class="pantheon-count">11</span>Rudras</div><div class="chips" id="rudras"></div></div>
+<div class="pantheon-group"><div class="pantheon-title"><span class="pantheon-count">12</span>Adityas</div><div class="chips" id="adityas"></div></div>
+<div class="pantheon-group"><div class="pantheon-title"><span class="pantheon-count">02</span>Completing forms</div><div class="chips" id="completing"></div></div>
+</div>
+</section>
 
-<section class="content"><div class="support"><div><span class="smallcap">SUPPORT THE BROADCAST</span><h2>Keep the divine stream alive.</h2><p>Support the free listening experience and help maintain the website.</p><div class="support-note">UPI: yadavroshan817-1@okhdfcbank</div></div><button class="primary" id="donate2">Support Anant Naad</button></div></section>
+<section class="section">
+<div class="support"><div><span class="section-kicker">SUPPORT THE BROADCAST</span><h2>Keep the divine station alive.</h2><p>Support the free listening experience, hosting, and future original devotional programming.</p><div class="upi">UPI: yadavroshan817-1@okhdfcbank</div></div><button class="primary" id="donate2">Support Anant Naad</button></div>
+</section>
 </main>
-<footer><div class="brand"><span class="om">ॐ</span><span><span class="brandname">ANANT NAAD</span><span class="tagline">Divine Sounds, Anytime</span></span></div><div class="flinks"><a href="#home">Home</a><a href="#schedule">Schedule</a><button id="about">About</button><button id="privacy">Privacy</button><button id="terms">Terms</button></div><div class="creator"><span>© 2026 Anant Naad</span><strong>Created with Devotion ❤️ by Roshika</strong></div></footer>
+
+<footer>
+<div class="brand"><span class="brand-orb">ॐ</span><span><span class="brand-main">ANANT NAAD</span><span class="brand-sub">DIVINE SOUNDS, ANYTIME</span></span></div>
+<div class="footlinks"><a href="#home">Home</a><a href="#journey">Journey</a><a href="#deities">Deities</a><button id="about">About</button><button id="sources">Audio Sources</button><button id="privacy">Privacy</button></div>
+<div class="creator"><span>© 2026 Anant Naad</span><strong>Created with Devotion ❤️ by Roshika</strong></div>
+</footer>
 </div>
 
-<div class="backdrop" id="modal" hidden><div class="modal" role="dialog" aria-modal="true" aria-labelledby="mtitle"><button class="close" id="close">×</button><span class="smallcap" id="mkicker">ANANT NAAD</span><h2 id="mtitle">Support Anant Naad</h2><div id="mbody"><div class="donation"><img alt="UPI donation QR code" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAWgAAAFoAQAAAABSnlx4AAACfElEQVR4nO2aS27rMBAEux98/yvXW8yHUnYBZIWUaMB2YtWiMRg050OjX7z+/Qbe9KY3velNf5H+SJLjb4xkIVnCwpLop19W8g76IyliqQhwxheTH/30y0reQUe85YgqJvPbsgQy4+lMuh9B20SCI4Fku9zkZiUvoQkv0cG2/0jJU+n0k+56wj/CR/L8PDydR/eqdMR75DKOQxJjqe37BiXvoD/Sj+w2xqNEPDydSfeqdPmH3N7tekeo82fv+vsK2pm9jrrEoxKvWHOw8Hl0L05bI7iV0FGAY0N5ynS6l6PzQEQ+Npb5djac7eLz6F6Vzn4+8jub+JygtIFnvfJlJe+g07/LunNIFedmFoUoa8SZdK9Nuz8wdF1ijRnKTUpeQdcc1tLhfEREId6H6Gy616UBXJ5tx+gKizGfvUnJw+lRcEcdMirw/PdUgM+je20amRzG4i7BjSwi5Pu8vJCObKb7eke7g6COzZuUvISOADuLEnLdUGelCE+fT/eqdBgHMhHbqEvyi8z4W5Q8ne5+R6q2svfE7hGW9/zkUtpALi6BXBeXbVuxybxFySvoTGTjNJBjT0mZyR1KHk/3wqzNpGeFtYSg9pkz6V6ahprKUuuH496ywz2b7rVpeoqCUe7na3p1q5IH03V/kNP4tReY2e5UiTKP7lXpsZ8/OIlzSd82vvc7V9Gn+7H9K9lqxjgF7fPyKvrH/ViyrWT82KueLyt5B326H+tRaucSM9b0dT1iIt2PoGtbTNUpOaSlhoST6l6bdid7TwxrAD617iXo8/3YHLuO2xG10dx+chF9uh9ryBv3df2b7i33eXkJPeZSf61k05ve9KY3/ZvXf2wfNOIk1vWLAAAAAElFTkSuQmCC"><div><p>Support the free devotional listening experience. Scan this QR code using any UPI app, or use the UPI ID below.</p><div class="upi">yadavroshan817-1@okhdfcbank</div><a class="primary" href="upi://pay?pa=yadavroshan817-1%40okhdfcbank&pn=Anant%20Naad&cu=INR">Open UPI App</a></div></div></div></div></div>
+<div class="modalbg" id="modal" hidden>
+<div class="modal">
+<button class="close" id="close">×</button>
+<span class="section-kicker">ANANT NAAD</span>
+<h2 id="modalTitle">Support Anant Naad</h2>
+<div id="modalBody"></div>
+</div>
+</div>
 
 <script>
-/* Remove any older Anant Naad service worker/cache from previous builds. */
-(async()=>{try{
-  if("serviceWorker" in navigator){
-    const regs=await navigator.serviceWorker.getRegistrations();
-    for(const reg of regs){
-      if(reg.scope.includes("/anant-naad/")) await reg.unregister();
-    }
-  }
-  if("caches" in window){
-    const keys=await caches.keys();
-    for(const key of keys){
-      if(key.toLowerCase().includes("anant-naad")) await caches.delete(key);
-    }
-  }
-}catch(e){console.warn("Cache cleanup skipped",e)}})();
-
-const S={
-morning:{start:"04:00",end:"11:00",label:"Morning Blessings",subtitle:"Awaken with sacred sound",icon:"🌅",mood:"Awaken • Chant • Begin",focus:["Hanuman","Shiva","Ganesha","Surya"],theme:"",videos:["f_74PJScPQ4","wBbdNd682A4","Viccu8N9NLg"]},
-afternoon:{start:"11:00",end:"17:00",label:"Afternoon Devotion",subtitle:"A calm companion through the day",icon:"☀️",mood:"Focus • Bhakti • Grace",focus:["Krishna","Rama","Vishnu","Lakshmi","Saraswati"],theme:"day",videos:["wBbdNd682A4","Viccu8N9NLg","f_74PJScPQ4"]},
-evening:{start:"17:00",end:"21:00",label:"Evening Aarti",subtitle:"Light a diya, slow down, listen",icon:"🪔",mood:"Aarti • Gratitude • Light",focus:["Durga","Ganesha","Shiva","Hanuman","Kali"],theme:"aarti",videos:["f_74PJScPQ4","wBbdNd682A4","Viccu8N9NLg"]},
-night:{start:"21:00",end:"04:00",label:"Night Meditation",subtitle:"Slow devotional sound for quiet hours",icon:"🌙",mood:"Stillness • Flute • Rest",focus:["Krishna","Shiva","Vishnu","Rama","Hanuman"],theme:"night",videos:["wBbdNd682A4","Viccu8N9NLg"]}
+const UPI="yadavroshan817-1@okhdfcbank";
+const UPI_URI="upi://pay?pa=yadavroshan817-1%40okhdfcbank&pn=Anant%20Naad&cu=INR";
+const AUDIO={"ganpati": "https://upload.wikimedia.org/wikipedia/commons/e/ea/Aarti%20Puja%2C%20Ganpati%20Vandana.ogg", "lakshmi": "https://upload.wikimedia.org/wikipedia/commons/3/3d/Aarti%20Puja%2C%20Lakshmi%20Laxmi.ogg", "santoshi": "https://upload.wikimedia.org/wikipedia/commons/2/22/Aarti%20Puja%2C%20deity%20Santoshi.ogg", "radha": "https://upload.wikimedia.org/wikipedia/commons/c/c6/Aarti%20Shri%20Radha%20Govind%2C%20Musical%20Puja%20Prayer.ogg", "pranatarthi": "https://upload.wikimedia.org/wikipedia/commons/4/4a/Pranatarthi%20Haram%20by%20Veena%20Raja%20Rao%20and%20Veena%20Gopala%20Rao.ogg", "haratanaya": "https://upload.wikimedia.org/wikipedia/commons/b/b8/Veena%20Kinhal%20-%2001%20-%20Haratanaya%20Sree.ogg", "mrityunjaya": "https://upload.wikimedia.org/wikipedia/commons/4/45/Mrityunjaya.ogg"};
+const station={
+morning:{start:"04:00",end:"11:00",label:"Morning Blessings",subtitle:"Begin softly. Let devotion set the tone.",icon:"🌅",mood:"Awaken • Chant • Begin",focus:["Hanuman","Shiva","Ganesha","Surya"],theme:"",scene:"MORNING RITUAL",sigil:"ॐ",tracks:[
+["Ganpati Vandana","CC0 devotional recording • Shri Hari Om Sharan Ji","ganpati"],
+["Aarti Shri Radha Govind","CC0 devotional recording • Jaipur","radha"],
+["Pranatarthi Haram","Public domain • Veena Raja Rao & Veena Gopala Rao","pranatarthi"],
+["Jai Santoshi Maa","CC0 devotional recording • Shri Hari Om Sharan Ji","santoshi"]
+]},
+afternoon:{start:"11:00",end:"17:00",label:"Afternoon Devotion",subtitle:"A gentle devotional companion for the middle of your day.",icon:"☀️",mood:"Focus • Bhakti • Grace",focus:["Krishna","Rama","Vishnu","Lakshmi","Saraswati"],theme:"day",scene:"DAYLIGHT DEVOTION",sigil:"कृष्ण",tracks:[
+["Aarti Shri Radha Govind","CC0 devotional recording • Jaipur","radha"],
+["Aarti Lakshmi Maa Ki","CC0 devotional recording • Shri Hari Om Sharan Ji","lakshmi"],
+["Ganpati Vandana","CC0 devotional recording • Shri Hari Om Sharan Ji","ganpati"],
+["Jai Santoshi Maa","CC0 devotional recording • Shri Hari Om Sharan Ji","santoshi"]
+]},
+evening:{start:"17:00",end:"21:00",label:"Evening Aarti",subtitle:"When the lamps rise, let the day become gratitude.",icon:"🪔",mood:"Aarti • Gratitude • Light",focus:["Durga","Ganesha","Shiva","Lakshmi","Hanuman"],theme:"aarti",scene:"EVENING AARTI",sigil:"🪔",tracks:[
+["Ganpati Vandana","CC0 devotional recording • Shri Hari Om Sharan Ji","ganpati"],
+["Aarti Lakshmi Maa Ki","CC0 devotional recording • Shri Hari Om Sharan Ji","lakshmi"],
+["Aarti Shri Radha Govind","CC0 devotional recording • Jaipur","radha"],
+["Jai Santoshi Maa","CC0 devotional recording • Shri Hari Om Sharan Ji","santoshi"]
+]},
+night:{start:"21:00",end:"04:00",label:"Night Meditation",subtitle:"Slow sacred sound for the quiet hours.",icon:"🌙",mood:"Stillness • Flute • Rest",focus:["Krishna","Shiva","Vishnu","Rama","Hanuman"],theme:"night",scene:"NIGHT MEDITATION",sigil:"☾",tracks:[
+["Pranatarthi Haram","Public domain • Veena Raja Rao & Veena Gopala Rao","pranatarthi"],
+["Haratanaya Sree","Public domain • Veena Kinhal","haratanaya"],
+["Mahamrityunjaya Mantra","Free Art License • Rameshvar","mrityunjaya"],
+["Aarti Shri Radha Govind","CC0 devotional recording • Jaipur","radha"]
+]}
 };
 const order=["morning","afternoon","evening","night"];
 const quotes=[
-["ॐ नमः शिवाय","A simple remembrance for a quieter mind.","Shiva Panchakshara"],
+["ॐ नमः शिवाय","A simple remembrance for a quieter mind.","Anant Naad • Daily Reflection"],
 ["You have the right to action, but not to the fruits of action.","Let sincere action be your offering.","Bhagavad Gita • 2.47"],
 ["श्री राम नाम स्मरण मन को स्थिर और सरल बनाता है।","Remembering Shri Rama brings steadiness to the mind.","Devotional Reflection"],
 ["भक्ति में शक्ति है, और शांति में दिशा।","Devotion gives strength; inner peace gives direction.","Anant Naad • Daily Reflection"],
 ["जय श्री कृष्ण","May devotion bring joy and clarity.","Anant Naad • Daily Reflection"]
 ];
-const P={
+const pantheon={
 vasus:["Agni • Fire","Prithvi • Earth","Vayu • Air","Antariksha • Sky","Surya • Sun","Dyaus • Heaven","Soma • Moon","Nakshatra • Stars"],
 rudras:["Chakshu • Sight","Shrotra • Hearing","Ghrana • Smell","Jihva • Taste","Tvak • Touch","Vak • Speech","Pani • Hands","Pada • Feet","Payu • Elimination","Upastha • Reproduction","Manas • Mind"],
 adityas:["Mitra","Aryaman","Bhaga","Varuna","Daksha","Aṃśa","Tvaṣṭṛ","Pūṣan","Vivasvat","Savitṛ","Dhātā","Viṣṇu"],
 completing:["Indra","Prajāpati"]
 };
-let current="",playing=false;
-const $=id=>document.getElementById(id), mins=t=>{const [h,m]=t.split(":").map(Number);return h*60+m};
-function currentKey(){const n=new Date().getHours()*60+new Date().getMinutes();for(const k of order){const s=S[k],a=mins(s.start),b=mins(s.end);if(a<b?(n>=a&&n<b):(n>=a||n<b))return k}return"night"}
+let current="",tracks=[],idx=0,shuffle=false,playing=false;
+const $=id=>document.getElementById(id),audio=$("audio");
+const mins=t=>{const [h,m]=t.split(":").map(Number);return h*60+m};
+function currentKey(){const n=new Date().getHours()*60+new Date().getMinutes();for(const k of order){const s=station[k],a=mins(s.start),b=mins(s.end);if(a<b?(n>=a&&n<b):(n>=a||n<b))return k}return"night"}
 function nextKey(k){return order[(order.indexOf(k)+1)%order.length]}
-function url(s,autoplay){const first=encodeURIComponent(s.videos[0]), rest=s.videos.slice(1).map(encodeURIComponent).join(",");return "https://www.youtube.com/embed/"+first+"?playlist="+rest+"&loop=1&autoplay="+(autoplay?1:0)+"&playsinline=1&controls=1&rel=0&modestbranding=1"}
-function apply(k,auto){current=k;const s=S[k];document.body.classList.toggle("day",s.theme==="day");document.body.classList.toggle("aarti",s.theme==="aarti");document.body.classList.toggle("night",s.theme==="night");$("sessionIcon").textContent=s.icon;$("session").textContent=s.label;$("mood").textContent=s.mood;$("subtitle").textContent=s.subtitle;$("focus").textContent=s.focus.join(" • ");$("q1").textContent=s.label;$("q2").textContent=S[nextKey(k)].label;$("now").textContent=s.label;$("symbol").textContent=k==="afternoon"?"कृष्ण":k==="evening"?"🪔":k==="night"?"☾":"ॐ";$("playerState").textContent=auto?"Switching mood…":"Ready";$("yt").src=url(s,false);cards()}
-function cards(){$("cards").innerHTML=order.map(k=>{const s=S[k];return '<article class="card '+(k===current?'active':'')+'"><div class="icon">'+s.icon+'</div><div class="cname">'+s.label+'</div><div class="ctime">'+s.start+' – '+s.end+'</div><div class="mood">'+s.mood+'</div></article>'}).join("")}
-function play(){ $("yt").src=url(S[current],true); playing=true; $("playText").textContent="Pause"; $("playerState").textContent="Playing"; $("q3").textContent="Playing"; $("status").textContent="Devotional playback is running in the official YouTube player."}
-function pause(){const f=$("yt");try{f.contentWindow.postMessage(JSON.stringify({event:"command",func:"pauseVideo",args:[]}),"*")}catch(e){}playing=false;$("playText").textContent="Play Anant Naad";$("playerState").textContent="Paused";$("q3").textContent="Paused"}
-function tick(){const d=new Date(),h=d.toLocaleTimeString([],{hour:"2-digit",minute:"2-digit"});$("clock").textContent=h;const k=currentKey();if(k!==current)apply(k,playing);const s=S[current],end=mins(s.end),n=d.getHours()*60+d.getMinutes();let delta=end-n;if(delta<=0)delta+=1440;const total=delta*60-d.getSeconds(),hh=Math.floor(total/3600),mm=Math.floor(total%3600/60),ss=total%60;$("next").textContent="Next mood — "+[hh,mm,ss].map(x=>String(Math.max(0,x)).padStart(2,"0")).join(":")}
-function quote(){const d=new Date(),day=Math.floor((d-new Date(d.getFullYear(),0,0))/86400000),q=quotes[day%quotes.length];$("quote").textContent=q[0];$("translation").textContent=q[1];$("source").textContent=q[2]}
-function modal(title,kicker,body){$("mkicker").textContent=kicker;$("mtitle").textContent=title;if(body)$("mbody").innerHTML=body;$("modal").hidden=false}
-$("play").onclick=()=>playing?pause():play();
-$("share").onclick=async()=>{try{if(navigator.share){await navigator.share({title:"Anant Naad — Divine Sounds, Anytime",text:"Listen to Anant Naad.",url:location.href});return}}catch(e){}try{await navigator.clipboard.writeText(location.href);$("status").textContent="Link copied."}catch(e){prompt("Copy this link:",location.href)}};
-$("donate").onclick=()=>modal("Support Anant Naad","DIVINE BROADCASTING");
-$("donate2").onclick=()=>modal("Support Anant Naad","DIVINE BROADCASTING");
-$("help").onclick=()=>modal("How Anant Naad Works","HELP","<p><strong>1. Tap Play.</strong> Your interaction starts the official YouTube player.</p><p><strong>2. The mood follows your local time.</strong> Morning, afternoon, evening and night have different visuals.</p><p><strong>3. Music stays inside YouTube.</strong> The site does not download or extract third-party music.</p><p><strong>4. Donate or Share.</strong> Use UPI support or share Anant Naad with friends.</p>");
-$("about").onclick=()=>modal("About Anant Naad","ABOUT","<p>Anant Naad is a lightweight devotional listening experience designed to feel like a living digital temple.</p><p>Created with Devotion ❤️ by Roshika.</p>");
-$("privacy").onclick=()=>modal("Privacy","PRIVACY","<p>Anant Naad does not require an account. The embedded YouTube player may process data according to YouTube's own policies.</p>");
-$("terms").onclick=()=>modal("Terms","TERMS","<p>Third-party YouTube videos remain subject to their owners' availability and embedding settings. Do not download or redistribute third-party content.</p>");
-$("close").onclick=()=>$("modal").hidden=true;$("modal").onclick=e=>{if(e.target===$("modal"))$("modal").hidden=true};document.addEventListener("keydown",e=>{if(e.key==="Escape")$("modal").hidden=true});
-current=currentKey();apply(current,false);quote();tick();setInterval(tick,1000);
+function countdown(){const s=station[current],d=new Date(),n=d.getHours()*60+d.getMinutes(),end=mins(s.end);let delta=end-n;if(delta<=0)delta+=1440;let sec=delta*60-d.getSeconds();const h=Math.floor(sec/3600),m=Math.floor(sec%3600/60),ss=sec%60;return [h,m,ss].map(x=>String(Math.max(0,x)).padStart(2,"0")).join(":")}
+function setSession(k,reload){current=k;const s=station[k];document.body.classList.toggle("day",s.theme==="day");document.body.classList.toggle("aarti",s.theme==="aarti");document.body.classList.toggle("night",s.theme==="night");$("moodIcon").textContent=s.icon;$("session").textContent=s.label;$("mood").textContent=s.mood;$("subtitle").textContent=s.subtitle;$("focus").textContent=s.focus.join(" • ");$("sceneLabel").textContent=s.scene;$("sigil").textContent=s.sigil;$("sigilSub").textContent=s.subtitle;$("f1").textContent=s.label;$("f2").textContent=station[nextKey(k)].label;buildQueue();renderRituals();if(reload){load(0,playing)}else load(0,false)}
+function buildQueue(){tracks=station[current].tracks.map(([title,artist,key])=>[title,artist,AUDIO[key]]);if(shuffle){for(let i=tracks.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[tracks[i],tracks[j]]=[tracks[j],tracks[i]]}}idx=Math.min(idx,tracks.length-1);renderQueue()}
+function renderQueue(){$("queue").innerHTML=tracks.map((t,i)=>`<button class="qitem ${i===idx?"active":""}" data-i="${i}" title="${t[0]}">${i+1}. ${t[0]}</button>`).join("");document.querySelectorAll(".qitem").forEach(b=>b.onclick=()=>load(Number(b.dataset.i),true))}
+function load(i,autoplay=false){if(!tracks.length)return;idx=(i+tracks.length)%tracks.length;const t=tracks[idx];audio.src=t[2];audio.load();$("trackTitle").textContent=t[0];$("trackArtist").textContent=t[1];$("status").textContent="Ready";$("elapsed").textContent="0:00";$("duration").textContent="0:00";$("fill").style.width="0%";renderQueue();if(autoplay){audio.play().then(()=>setPlayingUI(true)).catch(()=>setPlayingUI(false))}}
+function setPlayingUI(v){playing=v;$("playerCard").classList.toggle("is-playing",v);$("playText").textContent=v?"Pause":"Enter the soundscape";$("bigPlay").textContent=v?"Ⅱ":"▶";$("f3").textContent=v?"Playing":"Paused";if(v)$("status").textContent="Playing • "+tracks[idx][1]}
+function toggle(){if(audio.paused){audio.play().then(()=>setPlayingUI(true)).catch(()=>{setPlayingUI(false);$("hint").textContent="Tap Play once more if your browser blocks the first audio attempt."})}else audio.pause()}
+function next(){load(shuffle?Math.floor(Math.random()*tracks.length):idx+1,true)}
+function prev(){if(audio.currentTime>5){audio.currentTime=0;return}load(idx-1,true)}
+function renderRituals(){$("rituals").innerHTML=order.map(k=>{const s=station[k];return `<article class="ritual ${k===current?"active":""}"><div class="ritual-icon">${s.icon}</div><div class="ritual-title">${s.label}</div><div class="ritual-time">${s.start} – ${s.end}</div><div class="ritual-mood">${s.mood}</div><div class="ritual-note">${s.subtitle}</div></article>`}).join("")}
+function dailyQuote(){const d=new Date(),day=Math.floor((d-new Date(d.getFullYear(),0,0))/86400000),q=quotes[day%quotes.length];$("quoteText").textContent=q[0];$("quoteTranslation").textContent=q[1];$("quoteSource").textContent=q[2]}
+function openModal(title,body){$("modalTitle").textContent=title;$("modalBody").innerHTML=body;$("modal").hidden=false}
+$("play").onclick=toggle;$("bigPlay").onclick=toggle;$("nextBtn").onclick=next;$("prev").onclick=prev;
+$("shuffle").onclick=()=>{shuffle=!shuffle;buildQueue();$("hint").textContent=shuffle?"Shuffle mode is on for this divine session.":"Shuffle mode is off — the curated order will play through."};
+$("volume").oninput=e=>audio.volume=Number(e.target.value);
+$("progress").onclick=e=>{if(!audio.duration)return;const r=e.currentTarget.getBoundingClientRect();audio.currentTime=(e.clientX-r.left)/r.width*audio.duration};
+audio.addEventListener("play",()=>setPlayingUI(true));audio.addEventListener("pause",()=>setPlayingUI(false));audio.addEventListener("ended",next);
+audio.addEventListener("loadedmetadata",()=>{$("duration").textContent=fmt(audio.duration)});
+audio.addEventListener("timeupdate",()=>{if(audio.duration){$("fill").style.width=(audio.currentTime/audio.duration*100)+"%";$("elapsed").textContent=fmt(audio.currentTime)}});
+audio.addEventListener("error",()=>{ $("status").textContent="This track could not be loaded. Moving to the next available track…"; setTimeout(next,900); });
+function fmt(sec){if(!Number.isFinite(sec))return"0:00";sec=Math.max(0,Math.floor(sec));return Math.floor(sec/60)+":"+String(sec%60).padStart(2,"0")}
+function tick(){const d=new Date();$("clock").textContent=d.toLocaleTimeString([],{hour:"2-digit",minute:"2-digit"});const k=currentKey();if(k!==current)setSession(k,playing);$("nextMood").textContent="Next mood — "+countdown()}
+async function share(){try{if(navigator.share){await navigator.share({title:"Anant Naad — Divine Sounds, Anytime",text:"Listen to Anant Naad.",url:location.href});return}}catch(e){}try{await navigator.clipboard.writeText(location.href);$("hint").textContent="Link copied."}catch(e){prompt("Copy this link:",location.href)}}
+$("share").onclick=share;
+const donateBody=`<div class="donation-grid"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAWgAAAFoAQAAAABSnlx4AAACfElEQVR4nO2aS27rMBAEux98/yvXW8yHUnYBZIWUaMB2YtWiMRg050OjX7z+/Qbe9KY3velNf5H+SJLjb4xkIVnCwpLop19W8g76IyliqQhwxheTH/30y0reQUe85YgqJvPbsgQy4+lMuh9B20SCI4Fku9zkZiUvoQkv0cG2/0jJU+n0k+56wj/CR/L8PDydR/eqdMR75DKOQxJjqe37BiXvoD/Sj+w2xqNEPDydSfeqdPmH3N7tekeo82fv+vsK2pm9jrrEoxKvWHOw8Hl0L05bI7iV0FGAY0N5ynS6l6PzQEQ+Npb5djac7eLz6F6Vzn4+8jub+JygtIFnvfJlJe+g07/LunNIFedmFoUoa8SZdK9Nuz8wdF1ijRnKTUpeQdcc1tLhfEREId6H6Gy616UBXJ5tx+gKizGfvUnJw+lRcEcdMirw/PdUgM+je20amRzG4i7BjSwi5Pu8vJCObKb7eke7g6COzZuUvISOADuLEnLdUGelCE+fT/eqdBgHMhHbqEvyi8z4W5Q8ne5+R6q2svfE7hGW9/zkUtpALi6BXBeXbVuxybxFySvoTGTjNJBjT0mZyR1KHk/3wqzNpGeFtYSg9pkz6V6ahprKUuuH496ywz2b7rVpeoqCUe7na3p1q5IH03V/kNP4tReY2e5UiTKP7lXpsZ8/OIlzSd82vvc7V9Gn+7H9K9lqxjgF7fPyKvrH/ViyrWT82KueLyt5B326H+tRaucSM9b0dT1iIt2PoGtbTNUpOaSlhoST6l6bdid7TwxrAD617iXo8/3YHLuO2xG10dx+chF9uh9ryBv3df2b7i33eXkJPeZSf61k05ve9KY3/ZvXf2wfNOIk1vWLAAAAAElFTkSuQmCC" alt="UPI QR code"><div><p>Support the free devotional station. Scan the QR code with a UPI app or use the UPI ID below.</p><div class="upi-box">${UPI}</div><a class="primary" href="${UPI_URI}">Open UPI App</a></div></div>`;
+$("donate").onclick=()=>openModal("Support Anant Naad",donateBody);$("donate2").onclick=()=>openModal("Support Anant Naad",donateBody);
+$("help").onclick=()=>openModal("How Anant Naad works",`<p><strong>Play:</strong> starts the custom direct-audio player.</p><p><strong>Day rhythm:</strong> the station automatically changes its mood, visual identity and queue at 4 AM, 11 AM, 5 PM and 9 PM using the listener's local clock.</p><p><strong>Continuous queue:</strong> the next configured track starts automatically when the current one ends.</p><p><strong>Why no YouTube:</strong> YouTube embeds can show ads, and related-video behaviour cannot be completely disabled, so this design deliberately uses direct audio instead.</p>`);
+$("about").onclick=()=>openModal("About Anant Naad",`<p>Anant Naad is an audio-first devotional experience built to feel closer to a digital temple than a conventional music website.</p><p>It uses a custom player, time-based ambience, sacred geometry and a curated open-licence starter catalogue.</p><p><strong>Created with Devotion ❤️ by Roshika.</strong></p>`);
+$("privacy").onclick=()=>openModal("Privacy",`<p>No login is required. This static website does not maintain a user account or database.</p><p>The browser requests the selected audio directly from the public source host.</p>`);
+$("sources").onclick=()=>openModal("Audio Sources",`<p>The starter catalogue intentionally avoids YouTube. The listed recordings are identified by their source pages as CC0, public domain, or another free licence; check the source page before any commercial use.</p>
+<div class="source"><strong>Ganpati Vandana</strong><br>Shri Hari Om Sharan Ji • CC0<br><a href="https://commons.wikimedia.org/wiki/File:Aarti_Puja,_Ganpati_Vandana.ogg" target="_blank" rel="noopener">View source & licence</a></div>
+<div class="source"><strong>Aarti Lakshmi Maa Ki</strong><br>Shri Hari Om Sharan Ji • CC0<br><a href="https://commons.wikimedia.org/wiki/File:Aarti_Puja,_Lakshmi_Laxmi.ogg" target="_blank" rel="noopener">View source & licence</a></div>
+<div class="source"><strong>Aarti Shri Radha Govind</strong><br>Jaipur devotional recording • CC0<br><a href="https://commons.wikimedia.org/wiki/File:Aarti_Shri_Radha_Govind,_Musical_Puja_Prayer.ogg" target="_blank" rel="noopener">View source & licence</a></div>
+<div class="source"><strong>Pranatarthi Haram</strong><br>Veena Raja Rao & Veena Gopala Rao • Public Domain<br><a href="https://commons.wikimedia.org/wiki/File:Pranatarthi_Haram_by_Veena_Raja_Rao_and_Veena_Gopala_Rao.ogg" target="_blank" rel="noopener">View source & licence</a></div>
+<div class="source"><strong>Haratanaya Sree</strong><br>Veena Kinhal • Public Domain<br><a href="https://commons.wikimedia.org/wiki/File:Veena_Kinhal_-_01_-_Haratanaya_Sree.ogg" target="_blank" rel="noopener">View source & licence</a></div>`);
+$("close").onclick=()=>{$("modal").hidden=true};$("modal").onclick=e=>{if(e.target===$("modal"))$("modal").hidden=true};document.addEventListener("keydown",e=>{if(e.key==="Escape")$("modal").hidden=true});
+for(const [id,a] of Object.entries(pantheon))$(id).innerHTML=a.map(x=>`<div class="chip">${x}</div>`).join("");
+audio.volume=.85;setSession(currentKey(),false);dailyQuote();tick();setInterval(tick,1000);
 </script>
 </body>
 </html>
