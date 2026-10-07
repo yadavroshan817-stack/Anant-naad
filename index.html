@@ -99,7 +99,6 @@ header{display:flex;justify-content:space-between;align-items:center;padding:22p
 @media(prefers-reduced-motion:reduce){.micro-btn,.divine-toast{transition:none}.bell-ring{animation:none}}
 </style>
 </style>
-<script src="https://cdn.jsdelivr.net/npm/hls.js@1.5.18/dist/hls.min.js"></script>
 </head>
 <body>
 <div class="grain"></div><div class="ambient"><div class="starfield"></div></div>
@@ -109,7 +108,7 @@ header{display:flex;justify-content:space-between;align-items:center;padding:22p
 <main id="home">
 <section class="hero">
 <div class="left-rail">
-<div><div class="eyebrow">Devotion · without the noise</div><h1><span class="h1-small">A living station for the sacred hours.</span><span class="h1-main">Anant<br>Naad.</span></h1><div class="lede" id="lede">Begin softly. Let devotion set the tone.</div><div class="actions"><button class="primary" id="enterBtn">Enter the soundscape</button><button class="ghost" id="howBtn">How it works</button></div></div>
+<div><div class="eyebrow">Devotion · without the noise</div><h1><span class="h1-small">A living station for the sacred hours.</span><span class="h1-main">Anant<br>Naad.</span></h1><div class="lede" id="lede">Begin softly. Let devotion set the tone.</div><div class="actions"><button class="primary" id="enterBtn">Enter the soundscape · LIVE</button><button class="ghost" id="howBtn">How it works</button></div></div>
 <div class="mini-card"><div class="mini-label">Current rhythm</div><div class="mini-value" id="sessionLabel">Morning Blessings</div><div class="mini-note" id="moodLabel">Awaken · Chant · Begin</div></div>
 </div>
 <div class="stage" id="stage">
@@ -132,7 +131,7 @@ header{display:flex;justify-content:space-between;align-items:center;padding:22p
   <div class="section-head">
     <span class="kicker">LIVE RADIO NETWORK</span>
     <h2>24×7 devotional streams — without YouTube.</h2>
-    <p>Choose a live station and Anant Naad connects directly to its continuous audio stream. The player stays audio-first: no video tiles, no recommended-video wall.</p>
+    <p>Choose a live station and Anant Naad connects directly to its continuous audio stream. Tap once to start; it continues while this page stays open. No video tiles, no recommended-video wall.</p>
   </div>
   <div class="live-net">
     <div class="live-net-top">
@@ -143,6 +142,7 @@ header{display:flex;justify-content:space-between;align-items:center;padding:22p
       <div class="stream-status"><span id="streamLed" class="stream-led"></span><span id="streamStatus">Ready to tune</span></div>
     </div>
     <div class="radio-grid" id="radioGrid"></div>
+    <div style="margin-top:12px;padding:10px 12px;border:1px dashed var(--line);border-radius:14px;font-size:10px;color:var(--muted)">🎧 <strong>One-tap start:</strong> browsers require a user gesture before audio begins. After that, Live Radio can continue while this page remains open.</div>
     <div class="library-strip">
       <div class="library-copy">
         <div class="library-title">Hindi singer albums &amp; bhajan catalogue</div>
@@ -184,18 +184,22 @@ header{display:flex;justify-content:space-between;align-items:center;padding:22p
 </main>
 <footer class="footer"><div class="footer-nav"><a href="#home">Home</a><a href="#live-radio">Live Radio</a><a href="#rituals">Rituals</a><a href="#constellation">33 Forms</a><button id="sourcesBtn">Audio Sources</button><button id="privacyBtn">Privacy</button></div><div class="creator"><span>© 2026 Anant Naad</span><strong>Created with Devotion ❤️ by Roshika</strong></div></footer>
 </div>
-<audio id="audio" preload="metadata" crossorigin="anonymous"></audio>
+<audio id="audio" preload="none"></audio>
 <div class="modal" id="modal"><div class="modalbox"><button class="close" id="closeBtn">×</button><div class="kicker">ANANT NAAD</div><h3 id="modalTitle">About</h3><div id="modalBody"></div></div></div>
 <script>
 const UPI="yadavroshan817-1@okhdfcbank";
 const UPI_URI="upi://pay?pa=yadavroshan817-1%40okhdfcbank&pn=Anant%20Naad&cu=INR";
+
+// Continuous public radio endpoints. These are third-party broadcasts, not music hosted by Anant Naad.
 const LIVE_STREAMS=[
-  {id:'shaiva',name:'Shiva Bhakti · Shaiva Lahari',short:'Shiva',meta:'24×7 Lord Shiva devotional radio · Hindi + Sanskrit + regional languages',src:'https://radio.shaivam.org/listen/shaiva-lahari/radio.mp3',url:'https://shaivam.org/radio-shaivalahari/',note:'Official Shaivam.org radio stream'},
-  {id:'bhakti',name:'Bhakti Sangeet',short:'Bhakti Sangeet',meta:'24×7 Hindi devotional music & spiritual content',src:'https://stream.zeno.fm/ut3kgm1vsa0uv',url:'https://www.radioindia.in/bhakti-sangeet',note:'External live stream'},
-  {id:'bw-shiva',name:'Bhaktiworld Media · Shiva',short:'BW · Shiva',meta:'24×7 Shiva bhajans, mantras & aartis',src:'https://hot.out.airtime.pro:8000/hot_a',url:'https://www.bhaktiworldmedia.com/',note:'Bhaktiworld Media live stream'},
-  {id:'shemaroo',name:'Shemaroo Bhakti',short:'Shemaroo',meta:'24×7 bhajans, mantras, chants & bhakti geet',src:'https://bhaktiapp.shemaroo.com/pratishirdi/smil:pratishirdisel.smil/chunklist_b1128000_sleng.m3u8',url:'http://www.shemaroobhakti.com/',note:'Shemaroo Bhakti live stream'}
+ {id:'bw-shiva',name:'Bhaktiworld Media · Shiva',short:'Shiva',meta:'24×7 Shiva bhajans, mantras & aartis',src:'https://hot.out.airtime.pro:8000/hot_a',url:'https://www.bhaktiworldmedia.com/'},
+ {id:'bhakti',name:'Bhakti Sangeet',short:'Bhakti Sangeet',meta:'24×7 Hindi devotional music & spiritual content',src:'https://stream.zeno.fm/ut3kgm1vsa0uv',url:'https://tingfm.com/radio/25880'},
+ {id:'hanuman',name:'Bhaktiworld Media · Hanuman Ji',short:'Hanuman',meta:'24×7 Hanuman bhajans, mantras & devotional music',src:'https://2bhanuman.out.airtime.pro:8000/2bhanuman_a',url:'https://tingfm.com/radio/26188'},
+ {id:'krishna',name:'Bhaktiworld Media · Krishna',short:'Krishna',meta:'24×7 Krishna bhajans, aartis & devotional music',src:'https://millenniumhits.out.airtime.pro:8000/millenniumhits_a',url:'https://tingfm.com/radio/26180'},
+ {id:'devi',name:'Bhaktiworld Media · Devi Maa',short:'Devi Maa',meta:'24×7 Devi Maa devotional programming',src:'https://ibadat.out.airtime.pro:8000/ibadat_a',url:'https://tingfm.com/radio/26184'},
+ {id:'kirtan',name:'24 Hour Kirtan · Vrndavan',short:'Kirtan',meta:'Continuous kirtan radio from Vrndavan',src:'https://server.24hourkirtan.fm:8000/128k.mp3',url:'https://www.24hourkirtan.fm/'}
 ];
-let liveSource=LIVE_STREAMS[0], liveFailIndex=0, liveMode=false;
+let liveSource=LIVE_STREAMS[0],liveSourceIndex=0,liveMode=true,triedStreams=new Set(),streamWatch=null,reconnectTimer=null;
 
 const AUDIO={
  ganpati:"https://upload.wikimedia.org/wikipedia/commons/e/ea/Aarti%20Puja%2C%20Ganpati%20Vandana.ogg",
@@ -207,113 +211,78 @@ const AUDIO={
  mrityunjaya:"https://upload.wikimedia.org/wikipedia/commons/4/45/Mrityunjaya.ogg"
 };
 const station={
- morning:{start:4,end:11,label:"Morning Blessings",subtitle:"Begin softly. Let devotion set the tone.",icon:"🌅",mood:"Awaken · Chant · Begin",theme:"",scene:"MORNING RITUAL",sigil:"ॐ",focus:["Hanuman","Shiva","Ganesha","Surya"],tracks:[
- ["Ganpati Vandana","Shri Hari Om Sharan Ji","CC0","ganpati"],["Aarti Shri Radha Govind","Jaipur devotional recording","CC0","radha"],["Pranatarthi Haram","Veena Raja Rao & Veena Gopala Rao","Public Domain","pranatarthi"],["Jai Santoshi Maa","Shri Hari Om Sharan Ji","CC0","santoshi"]]},
- afternoon:{start:11,end:17,label:"Afternoon Devotion",subtitle:"A gentle devotional companion for the middle of your day.",icon:"☀️",mood:"Focus · Bhakti · Grace",theme:"day",scene:"DAYLIGHT DEVOTION",sigil:"कृष्ण",focus:["Krishna","Rama","Vishnu","Lakshmi","Saraswati"],tracks:[
- ["Aarti Shri Radha Govind","Jaipur devotional recording","CC0","radha"],["Aarti Lakshmi Maa Ki","Shri Hari Om Sharan Ji","CC0","lakshmi"],["Ganpati Vandana","Shri Hari Om Sharan Ji","CC0","ganpati"],["Jai Santoshi Maa","Shri Hari Om Sharan Ji","CC0","santoshi"]]},
- evening:{start:17,end:21,label:"Evening Aarti",subtitle:"When the lamps rise, let the day become gratitude.",icon:"🪔",mood:"Aarti · Gratitude · Light",theme:"aarti",scene:"EVENING AARTI",sigil:"🪔",focus:["Durga","Ganesha","Shiva","Lakshmi","Hanuman"],tracks:[
- ["Ganpati Vandana","Shri Hari Om Sharan Ji","CC0","ganpati"],["Aarti Lakshmi Maa Ki","Shri Hari Om Sharan Ji","CC0","lakshmi"],["Aarti Shri Radha Govind","Jaipur devotional recording","CC0","radha"],["Jai Santoshi Maa","Shri Hari Om Sharan Ji","CC0","santoshi"]]},
- night:{start:21,end:4,label:"Night Meditation",subtitle:"Slow sacred sound for the quiet hours.",icon:"🌙",mood:"Stillness · Flute · Rest",theme:"night",scene:"NIGHT MEDITATION",sigil:"☾",focus:["Krishna","Shiva","Vishnu","Rama","Hanuman"],tracks:[
- ["Pranatarthi Haram","Veena Raja Rao & Veena Gopala Rao","Public Domain","pranatarthi"],["Haratanaya Sree","Veena Kinhal","Public Domain","haratanaya"],["Mahamrityunjaya Mantra","Rameshvar","Free Art License","mrityunjaya"],["Aarti Shri Radha Govind","Jaipur devotional recording","CC0","radha"]]}
+ morning:{start:4,end:11,label:"Morning Blessings",subtitle:"Begin softly. Let devotion set the tone.",icon:"🌅",mood:"Awaken · Chant · Begin",theme:"",scene:"MORNING RITUAL",sigil:"ॐ",focus:["Hanuman","Shiva","Ganesha","Surya"],tracks:[["Ganpati Vandana","Shri Hari Om Sharan Ji","CC0","ganpati"],["Aarti Shri Radha Govind","Jaipur devotional recording","CC0","radha"],["Pranatarthi Haram","Veena Raja Rao & Veena Gopala Rao","Public Domain","pranatarthi"],["Jai Santoshi Maa","Shri Hari Om Sharan Ji","CC0","santoshi"]]},
+ afternoon:{start:11,end:17,label:"Afternoon Devotion",subtitle:"A gentle devotional companion for the middle of your day.",icon:"☀️",mood:"Focus · Bhakti · Grace",theme:"day",scene:"DAYLIGHT DEVOTION",sigil:"कृष्ण",focus:["Krishna","Rama","Vishnu","Lakshmi","Saraswati"],tracks:[["Aarti Shri Radha Govind","Jaipur devotional recording","CC0","radha"],["Aarti Lakshmi Maa Ki","Shri Hari Om Sharan Ji","CC0","lakshmi"],["Ganpati Vandana","Shri Hari Om Sharan Ji","CC0","ganpati"],["Jai Santoshi Maa","Shri Hari Om Sharan Ji","CC0","santoshi"]]},
+ evening:{start:17,end:21,label:"Evening Aarti",subtitle:"When the lamps rise, let the day become gratitude.",icon:"🪔",mood:"Aarti · Gratitude · Light",theme:"aarti",scene:"EVENING AARTI",sigil:"🪔",focus:["Durga","Ganesha","Shiva","Lakshmi","Hanuman"],tracks:[["Ganpati Vandana","Shri Hari Om Sharan Ji","CC0","ganpati"],["Aarti Lakshmi Maa Ki","Shri Hari Om Sharan Ji","CC0","lakshmi"],["Aarti Shri Radha Govind","Jaipur devotional recording","CC0","radha"],["Jai Santoshi Maa","Shri Hari Om Sharan Ji","CC0","santoshi"]]},
+ night:{start:21,end:4,label:"Night Meditation",subtitle:"Slow sacred sound for the quiet hours.",icon:"🌙",mood:"Stillness · Flute · Rest",theme:"night",scene:"NIGHT MEDITATION",sigil:"☾",focus:["Krishna","Shiva","Vishnu","Rama","Hanuman"],tracks:[["Pranatarthi Haram","Veena Raja Rao & Veena Gopala Rao","Public Domain","pranatarthi"],["Haratanaya Sree","Veena Kinhal","Public Domain","haratanaya"],["Mahamrityunjaya Mantra","Rameshvar","Free Art License","mrityunjaya"],["Aarti Shri Radha Govind","Jaipur devotional recording","CC0","radha"]]}
 };
 const order=["morning","afternoon","evening","night"];
-const pantheon={
- Vasus:["Agni","Prithvi","Vayu","Antariksha","Surya","Dyaus","Soma","Nakshatra"],
- Rudras:["Chakshu","Shrotra","Ghrana","Jihva","Tvak","Vak","Pani","Pada","Payu","Upastha","Manas"],
- Adityas:["Mitra","Aryaman","Bhaga","Varuna","Daksha","Aṃśa","Tvaṣṭṛ","Pūṣan","Vivasvat","Savitṛ","Dhātā","Viṣṇu"],
- Completing:["Indra","Prajāpati"]
-};
+const pantheon={Vasus:["Agni","Prithvi","Vayu","Antariksha","Surya","Dyaus","Soma","Nakshatra"],Rudras:["Chakshu","Shrotra","Ghrana","Jihva","Tvak","Vak","Pani","Pada","Payu","Upastha","Manas"],Adityas:["Mitra","Aryaman","Bhaga","Varuna","Daksha","Aṃśa","Tvaṣṭṛ","Pūṣan","Vivasvat","Savitṛ","Dhātā","Viṣṇu"],Completing:["Indra","Prajāpati"]};
 const groupMeta={Vasus:"08",Rudras:"11",Adityas:"12",Completing:"02"};
-const quotes=[
- ["ॐ नमः शिवाय","A simple remembrance for a quieter mind.","Anant Naad · Daily Reflection"],
- ["You have the right to action, but not to the fruits of action.","Let sincere action be your offering.","Bhagavad Gita · 2.47"],
- ["जय श्री कृष्ण","May devotion bring joy and clarity.","Anant Naad · Daily Reflection"],
- ["भक्ति में शक्ति है, और शांति में दिशा।","Devotion gives strength; inner peace gives direction.","Anant Naad · Daily Reflection"],
- ["श्री राम नाम स्मरण","Remembering Shri Rama can become a steady inner rhythm.","Devotional Reflection"]
-];
+const quotes=[["ॐ नमः शिवाय","A simple remembrance for a quieter mind.","Anant Naad · Daily Reflection"],["You have the right to action, but not to the fruits of action.","Let sincere action be your offering.","Bhagavad Gita · 2.47"],["जय श्री कृष्ण","May devotion bring joy and clarity.","Anant Naad · Daily Reflection"],["भक्ति में शक्ति है, और शांति में दिशा।","Devotion gives strength; inner peace gives direction.","Anant Naad · Daily Reflection"],["श्री राम नाम स्मरण","Remembering Shri Rama can become a steady inner rhythm.","Devotional Reflection"]];
 let current="",tracks=[],idx=0,shuffle=false;
-const audio=document.getElementById("audio");
-const $=id=>document.getElementById(id);
-const mins=n=>n*60;
-function sessionKey(){const t=new Date();const n=t.getHours()*60+t.getMinutes();for(const k of order){const s=station[k],a=mins(s.start),b=mins(s.end);if(a<b?(n>=a&&n<b):(n>=a||n<b))return k}return "night"}
-function nextSession(k){return order[(order.indexOf(k)+1)%4]}
-function remaining(k){const now=new Date(),s=station[k];let target=new Date(now);target.setHours(s.end,0,0,0);if(s.end<=now.getHours())target.setDate(target.getDate()+1);return Math.max(0,target-now)}
-function fmtRemain(ms){let sec=Math.floor(ms/1000);const h=Math.floor(sec/3600);sec%=3600;const m=Math.floor(sec/60);const s=sec%60;return `${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`}
+const audio=document.getElementById("audio"),$=id=>document.getElementById(id),mins=n=>n*60;
+function sessionKey(){const n=new Date().getHours()*60+new Date().getMinutes();for(const k of order){const s=station[k],a=mins(s.start),b=mins(s.end);if(a<b?(n>=a&&n<b):(n>=a||n<b))return k}return "night"}
+function nextSession(k){return order[(order.indexOf(k)+1)%order.length]}
+function remaining(k){const now=new Date(),s=station[k];let target=new Date(now);target.setHours(s.end,0,0,0);if((s.end<=now.getHours()))target.setDate(target.getDate()+1);return Math.max(0,target-now)}
+function fmtRemain(ms){let sec=Math.floor(ms/1000);const h=Math.floor(sec/3600);sec%=3600;const m=Math.floor(sec/60),s=sec%60;return `${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`}
+function fmt(sec){if(!Number.isFinite(sec))return '0:00';sec=Math.max(0,Math.floor(sec));return `${Math.floor(sec/60)}:${String(sec%60).padStart(2,'0')}`}
 function setTheme(k){const s=station[k];document.body.classList.remove("day","aarti","night");if(s.theme)document.body.classList.add(s.theme);$("sceneMini").textContent=s.scene;$("sessionLabel").textContent=s.label;$("moodLabel").textContent=s.mood;$("lede").textContent=s.subtitle;$("sessionIcon").textContent=s.icon;$("sigil").textContent=s.sigil;$("nextLabel").textContent=station[nextSession(k)].label;$("signalBig").textContent=s.focus.slice(0,2).join(" · ");$("signalList").innerHTML=s.focus.slice(0,5).map(x=>`<span class="sig-pill">${x}</span>`).join("")}
 function buildQueue(){tracks=station[current].tracks.map(t=>({title:t[0],artist:t[1],lic:t[2],src:AUDIO[t[3]]}));if(shuffle){for(let i=tracks.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[tracks[i],tracks[j]]=[tracks[j],tracks[i]]}}renderQueue()}
-function renderQueue(){$("queue").innerHTML=tracks.map((t,i)=>`<button class="q ${i===idx?'active':''}" data-i="${i}"><div class="q-index">0${i+1} · ${t.lic}</div><div class="q-title">${t.title}</div><div class="q-artist">${t.artist}</div><div class="q-source">tap to tune</div></button>`).join("");document.querySelectorAll('.q').forEach(b=>b.onclick=()=>load(Number(b.dataset.i),true))}
-function load(i,autoplay=false){liveMode=false;if(!tracks.length)return;idx=(i+tracks.length)%tracks.length;const t=tracks[idx];audio.src=t.src;audio.load();$("trackTitle").textContent=t.title;$("trackArtist").textContent=`${t.artist} · ${t.lic}`;$("fill").style.width='0%';$("elapsed").textContent='0:00';$("duration").textContent='0:00';renderQueue();if(autoplay)startAudio()}
-function startAudio(){audio.play().then(()=>{$("playBtn").textContent='Ⅱ';$("core").classList.add('playing')}).catch(()=>openModal('Browser audio permission','<p>Your browser may block audio until the first tap. Press the play button again to begin the direct audio stream.</p>'))}
-function toggle(){audio.paused?startAudio():audio.pause()}
-function next(){load(shuffle?Math.floor(Math.random()*tracks.length):idx+1,true)}
-function prev(){if(audio.currentTime>5){audio.currentTime=0}else load(idx-1,true)}
-function fmt(sec){if(!Number.isFinite(sec))return '0:00';sec=Math.max(0,Math.floor(sec));return `${Math.floor(sec/60)}:${String(sec%60).padStart(2,'0')}`}
-function tick(){const d=new Date();const k=sessionKey();$("clock").textContent=d.toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'});$("clock2").textContent=d.toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'});$("nextShift").textContent=fmtRemain(remaining(k));if(k!==current){const was=!audio.paused;current=k;idx=0;setTheme(k);buildQueue();load(0,was)} }
-function daily(){const d=new Date();const n=Math.floor((d-new Date(d.getFullYear(),0,0))/86400000);const q=quotes[n%quotes.length];$("quoteText").textContent=q[0];$("quoteTranslation").textContent=q[1];$("quoteSource").textContent=q[2]}
+function renderQueue(){$("queue").innerHTML=tracks.map((t,i)=>`<button class="q ${i===idx?'active':''}" data-i="${i}"><div class="q-index">0${i+1} · ${t.lic}</div><div class="q-title">${t.title}</div><div class="q-artist">${t.artist}</div><div class="q-source">tap to tune local rights-cleared audio</div></button>`).join('');document.querySelectorAll('.q').forEach(b=>b.onclick=()=>load(Number(b.dataset.i),true))}
 function openModal(title,html){$("modalTitle").textContent=title;$("modalBody").innerHTML=html;$("modal").classList.add('on')}
 function closeModal(){$("modal").classList.remove('on')}
-$("playBtn").onclick=toggle;$("enterBtn").onclick=toggle;$("nextBtn").onclick=next;$("prevBtn").onclick=prev;
-$("shuffleBtn").onclick=()=>{shuffle=!shuffle;buildQueue();$("shuffleBtn").style.transform=shuffle?'rotate(180deg)':'';if(shuffle)openModal('Shuffle mode','<p>The queue will vary inside the current sacred hour. Turn it off to return to the curated order.</p>')};
-$("progress").onclick=e=>{if(!audio.duration)return;const r=e.currentTarget.getBoundingClientRect();audio.currentTime=((e.clientX-r.left)/r.width)*audio.duration};
-let vol=.86;$("volBtn").onclick=()=>{vol=vol>.1?0:.86;audio.volume=vol;$("volBtn").textContent=vol?"◒":"◑"};audio.volume=vol;
-audio.addEventListener('play',()=>{$("playBtn").textContent='Ⅱ';$("core").classList.add('playing')});audio.addEventListener('pause',()=>{$("playBtn").textContent='▶';$("core").classList.remove('playing')});audio.addEventListener('ended',next);audio.addEventListener('loadedmetadata',()=>$("duration").textContent=fmt(audio.duration));audio.addEventListener('timeupdate',()=>{if(audio.duration){$("fill").style.width=`${audio.currentTime/audio.duration*100}%`;$("elapsed").textContent=fmt(audio.currentTime)}});audio.addEventListener('error',()=>{if(liveMode){handleLiveFailure()}else{setTimeout(next,700)}});
-
-let hls=null;
-function useLiveSource(src){liveMode=true;
-  if(hls){try{hls.destroy()}catch(e){}hls=null}
-  audio.pause();
-  if(src.endsWith('.m3u8')){
-    if(window.Hls && Hls.isSupported()){
-      hls=new Hls({enableWorker:true,lowLatencyMode:false});
-      hls.loadSource(src); hls.attachMedia(audio);
-      hls.on(Hls.Events.MANIFEST_PARSED,()=>startLiveAudio());
-      hls.on(Hls.Events.ERROR,(e,d)=>{if(d.fatal)handleLiveFailure()});
-    }else if(audio.canPlayType('application/vnd.apple.mpegurl')){
-      audio.src=src; audio.load(); startLiveAudio();
-    }else{setLiveStatus('This browser cannot play HLS here',false)}
-  }else{
-    audio.src=src; audio.load(); startLiveAudio();
-  }
+function setPlayerLiveText(){$("trackTitle").textContent="LIVE RADIO";$("trackArtist").textContent=`${liveSource.name} · ${liveSource.meta}`;$("elapsed").textContent="LIVE";$("duration").textContent="24×7";$("fill").style.width="100%"}
+function setLiveStatus(msg,on=false){$("streamStatus").textContent=msg;$("streamLed").classList.toggle('on',!!on);$("liveStationName").textContent=liveSource.name;$("liveStationMeta").textContent=liveSource.meta+" · third-party live stream";setPlayerLiveText()}
+function clearStreamTimers(){clearTimeout(streamWatch);clearTimeout(reconnectTimer);streamWatch=null;reconnectTimer=null}
+function watchStream(){clearTimeout(streamWatch);streamWatch=setTimeout(()=>{if(liveMode && audio.paused)advanceLive("connection timeout")},15000)}
+function chooseNextUntested(){for(let step=1;step<=LIVE_STREAMS.length;step++){const i=(liveSourceIndex+step)%LIVE_STREAMS.length;if(!triedStreams.has(i))return i}return -1}
+function startLiveRadio(index=liveSourceIndex,reset=true){
+ liveMode=true;clearStreamTimers();
+ if(index<0)index=0;if(index>=LIVE_STREAMS.length)index=0;
+ if(reset)triedStreams.clear();triedStreams.add(index);liveSourceIndex=index;liveSource=LIVE_STREAMS[index];
+ renderLiveGrid();setLiveStatus("Connecting…",false);
+ audio.pause();audio.removeAttribute('src');audio.load();audio.src=liveSource.src;audio.load();watchStream();
+ const p=audio.play();if(p?.catch)p.catch(()=>setLiveStatus("Tap Play to start the live stream",false));
 }
-function startLiveAudio(){
-  audio.play().then(()=>{setLiveStatus('LIVE · audio stream connected',true)}).catch(()=>{setLiveStatus('Press play to start the live stream',false)});
-}
-function setLiveStatus(msg,on){$('streamStatus').textContent=msg;$('streamLed').classList.toggle('on',!!on);$('liveStationName').textContent=liveSource.name;$('liveStationMeta').textContent=liveSource.meta+' · '+liveSource.note}
-function handleLiveFailure(){
-  liveFailIndex=(liveFailIndex+1)%LIVE_STREAMS.length;
-  if(liveFailIndex===0){setLiveStatus('Stream unavailable — try another source',false);return}
-  liveSource=LIVE_STREAMS[liveFailIndex]; renderLiveGrid(); setLiveStatus('Switching to a backup stream…',false); setTimeout(()=>useLiveSource(liveSource.src),500);
-}
-function renderLiveGrid(){
-  $('radioGrid').innerHTML=LIVE_STREAMS.map(s=>`<button class="radio-card ${s.id===liveSource.id?'active':''}" data-live="${s.id}"><div class="radio-badge">24×7 LIVE</div><div class="radio-name">${s.name}</div><div class="radio-meta">${s.meta}</div><span class="radio-tune">${s.id===liveSource.id?'●':'↗'}</span></button>`).join('');
-  document.querySelectorAll('[data-live]').forEach(b=>b.onclick=()=>{const s=LIVE_STREAMS.find(x=>x.id===b.dataset.live);if(!s)return;liveSource=s;liveFailIndex=LIVE_STREAMS.findIndex(x=>x.id===s.id);renderLiveGrid();setLiveStatus('Connecting…',false);useLiveSource(s.src)});
-}
-
-function share(){if(navigator.share){navigator.share({title:'Anant Naad',text:'Enter the living devotional soundscape.',url:location.href}).catch(()=>{})}else{navigator.clipboard?.writeText(location.href);openModal('Link ready','<p>The Anant Naad link has been copied where your browser allows clipboard access.</p>')}}
-$("shareBtn").onclick=share;
-$("howBtn").onclick=()=>openModal('How Anant Naad works','<p><strong>One tap starts the station.</strong> The page uses an audio-first player and can connect to continuous live radio streams.</p><p><strong>The hour changes the atmosphere.</strong> At 4 AM, 11 AM, 5 PM and 9 PM the visual mood and curated queue shift automatically.</p><p><strong>Live sources + Auto DJ.</strong> Live Radio mode connects to a continuous stream; the local rights-cleared catalogue remains available for scheduled Auto DJ playback.</p><p><strong>Built for listening.</strong> No login, no social feed, no YouTube recommendation layer.</p>');
+function advanceLive(reason){if(!liveMode)return;clearStreamTimers();const next=chooseNextUntested();if(next<0){setLiveStatus("No live source responded · choose another station",false);$("playBtn").textContent='▶';$("core").classList.remove('playing');return}setLiveStatus("Trying a backup live station…",false);reconnectTimer=setTimeout(()=>startLiveRadio(next,false),500)}
+function load(i,autoplay=false){clearStreamTimers();liveMode=false;if(!tracks.length)return;idx=(i+tracks.length)%tracks.length;const t=tracks[idx];audio.pause();audio.src=t.src;audio.load();$("trackTitle").textContent=t.title;$("trackArtist").textContent=`${t.artist} · ${t.lic}`;$("fill").style.width='0%';$("elapsed").textContent='0:00';$("duration").textContent='0:00';renderQueue();if(autoplay)startAudio()}
+function startAudio(){audio.play().then(()=>{$("playBtn").textContent='Ⅱ';$("core").classList.add('playing')}).catch(()=>openModal('Audio needs a tap','<p>Press Play once. Your browser blocks unsolicited audio until the visitor interacts with the page.</p>'))}
+function toggle(){if(liveMode){if(audio.paused){audio.play().then(()=>{$("playBtn").textContent='Ⅱ';$("core").classList.add('playing');setLiveStatus('LIVE · audio stream connected',true)}).catch(()=>setLiveStatus('Tap Play to start the live stream',false))}else{audio.pause();$("playBtn").textContent='▶';$("core").classList.remove('playing');setLiveStatus('Live stream paused',false)}}else startLiveRadio(0,true)}
+function next(){if(liveMode)startLiveRadio((liveSourceIndex+1)%LIVE_STREAMS.length,true);else load(shuffle?Math.floor(Math.random()*tracks.length):idx+1,true)}
+function prev(){if(liveMode)startLiveRadio((liveSourceIndex-1+LIVE_STREAMS.length)%LIVE_STREAMS.length,true);else if(audio.currentTime>5)audio.currentTime=0;else load(idx-1,true)}
+function share(){if(navigator.share){navigator.share({title:'Anant Naad',text:'Enter the living devotional soundscape.',url:location.href}).catch(()=>{})}else{navigator.clipboard?.writeText(location.href).catch(()=>{});openModal('Link ready','<p>The Anant Naad link has been copied where your browser allows clipboard access.</p>')}}
+$("playBtn").onclick=toggle;$("enterBtn").onclick=()=>startLiveRadio(liveSourceIndex,true);$("nextBtn").onclick=next;$("prevBtn").onclick=prev;$("shareBtn").onclick=share;
+$("howBtn").onclick=()=>openModal('How Anant Naad works','<p><strong>Tap once and join Live Radio.</strong> Browser autoplay rules require a user gesture before audio begins. After that, the selected live stream can continue while the page stays open.</p><p><strong>Automatic backup.</strong> If the chosen stream fails to connect, Anant Naad tries the other configured live sources.</p><p><strong>Auto DJ.</strong> The lower rail is a small rights-cleared starter library for when you deliberately choose a local recording.</p>');
+$("shuffleBtn").onclick=()=>{shuffle=!shuffle;buildQueue();$("shuffleBtn").style.transform=shuffle?'rotate(180deg)':'';if(shuffle)openModal('Shuffle mode','<p>The local rights-cleared queue will vary. Live Radio remains continuous and is not shuffled track-by-track.</p>')};
+$("progress").onclick=e=>{if(liveMode||!audio.duration)return;const r=e.currentTarget.getBoundingClientRect();audio.currentTime=((e.clientX-r.left)/r.width)*audio.duration};
+let vol=.86;$("volBtn").onclick=()=>{vol=vol>.1?0:.86;audio.volume=vol;$("volBtn").textContent=vol?'◒':'◑'};audio.volume=vol;
+audio.addEventListener('play',()=>{$("playBtn").textContent='Ⅱ';$("core").classList.add('playing')});
+audio.addEventListener('pause',()=>{$("playBtn").textContent='▶';$("core").classList.remove('playing')});
+audio.addEventListener('playing',()=>{if(liveMode){clearStreamTimers();setLiveStatus('LIVE · audio stream connected',true)}});
+audio.addEventListener('waiting',()=>{if(liveMode)watchStream()});audio.addEventListener('stalled',()=>{if(liveMode)watchStream()});
+audio.addEventListener('error',()=>{if(liveMode)advanceLive('stream error');else setTimeout(next,700)});
+audio.addEventListener('ended',()=>{if(liveMode)advanceLive('stream ended');else next()});
+audio.addEventListener('loadedmetadata',()=>{if(!liveMode)$("duration").textContent=fmt(audio.duration)});
+audio.addEventListener('timeupdate',()=>{if(!liveMode&&audio.duration){$("fill").style.width=`${audio.currentTime/audio.duration*100}%`;$('elapsed').textContent=fmt(audio.currentTime)}});
+function daily(){const d=new Date(),n=Math.floor((d-new Date(d.getFullYear(),0,0))/86400000),q=quotes[n%quotes.length];$("quoteText").textContent=q[0];$("quoteTranslation").textContent=q[1];$("quoteSource").textContent=q[2]}
 $("supportBtn").onclick=$("donateBtn").onclick=()=>openModal('Offerings to Anant Naad',`<div class="donation"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAWgAAAFoAQAAAABSnlx4AAACfElEQVR4nO2aS27rMBAEux98/yvXW8yHUnYBZIWUaMB2YtWiMRg050OjX7z+/Qbe9KY3velNf5H+SJLjb4xkIVnCwpLop19W8g76IyliqQhwxheTH/30y0reQUe85YgqJvPbsgQy4+lMuh9B20SCI4Fku9zkZiUvoQkv0cG2/0jJU+n0k+56wj/CR/L8PDydR/eqdMR75DKOQxJjqe37BiXvoD/Sj+w2xqNEPDydSfeqdPmH3N7tekeo82fv+vsK2pm9jrrEoxKvWHOw8Hl0L05bI7iV0FGAY0N5ynS6l6PzQEQ+Npb5djac7eLz6F6Vzn4+8jub+JygtIFnvfJlJe+g07/LunNIFedmFoUoa8SZdK9Nuz8wdF1ijRnKTUpeQdcc1tLhfEREId6H6Gy616UBXJ5tx+gKizGfvUnJw+lRcEcdMirw/PdUgM+je20amRzG4i7BjSwi5Pu8vJCObKb7eke7g6COzZuUvISOADuLEnLdUGelCE+fT/eqdBgHMhHbqEvyi8z4W5Q8ne5+R6q2svfE7hGW9/zkUtpALi6BXBeXbVuxybxFySvoTGTjNJBjT0mZyR1KHk/3wqzNpGeFtYSg9pkz6V6ahprKUuuH496ywz2b7rVpeoqCUe7na3p1q5IH03V/kNP4tReY2e5UiTKP7lXpsZ8/OIlzSd82vvc7V9Gn+7H9K9lqxjgF7fPyKvrH/ViyrWT82KueLyt5B326H+tRaucSM9b0dT1iIt2PoGtbTNUpOaSlhoST6l6bdid7TwxrAD617iXo8/3YHLuO2xG10dx+chF9uh9ryBv3df2b7i33eXkJPeZSf61k05ve9KY3/ZvXf2wfNOIk1vWLAAAAAElFTkSuQmCC" alt="UPI QR"><div><p>Scan with any UPI app, or use the ID below.</p><div class="upibox">${UPI}</div><a class="primary" href="${UPI_URI}">Open UPI App</a></div></div>`);
-$("aboutBtn").onclick=()=>openModal('About Anant Naad','<p>Anant Naad is designed as a digital temple rather than a conventional media site — a place where typography, motion, time and sound share one visual language.</p><p>The starter catalogue uses direct public/open-licence recordings. For a serious public launch, replace the starter catalogue with recordings you own or have explicit streaming permission for.</p><p><strong>Created with Devotion ❤️ by Roshika.</strong></p>');
-$("privacyBtn").onclick=()=>openModal('Privacy','<p>No account or login is required. This static site does not maintain a user profile or database. Selected audio is requested directly by your browser from the public audio host.</p>');
-$("sourcesBtn").onclick=()=>openModal('Audio Sources',`<p>Starter recordings are intentionally not YouTube-based. The Live Radio panel also connects to external 24×7 devotional streams. Those streams remain the responsibility of their respective operators.</p><p><a href="https://commons.wikimedia.org/wiki/File:Aarti_Puja,_Ganpati_Vandana.ogg" target="_blank" rel="noopener">Ganpati Vandana · CC0</a><br><a href="https://commons.wikimedia.org/wiki/File:Aarti_Puja,_Lakshmi_Laxmi.ogg" target="_blank" rel="noopener">Lakshmi Laxmi · CC0</a><br><a href="https://commons.wikimedia.org/wiki/File:Aarti_Shri_Radha_Govind,_Musical_Puja_Prayer.ogg" target="_blank" rel="noopener">Radha Govind · CC0</a><br><a href="https://commons.wikimedia.org/wiki/File:Pranatarthi_Haram_by_Veena_Raja_Rao_and_Veena_Gopala_Rao.ogg" target="_blank" rel="noopener">Pranatarthi Haram · Public Domain</a><br><a href="https://commons.wikimedia.org/wiki/File:Veena_Kinhal_-_01_-_Haratanaya_Sree.ogg" target="_blank" rel="noopener">Haratanaya Sree · Public Domain</a></p>`);
+$("aboutBtn").onclick=()=>openModal('About Anant Naad','<p>Anant Naad is designed as a digital temple rather than a conventional media site — a place where typography, motion, time and sound share one visual language.</p><p>Live Radio uses external continuous devotional broadcasts. For an independent Anant Naad station, use licensed masters on your own streaming server.</p><p><strong>Created with Devotion ❤️ by Roshika.</strong></p>');
+$("privacyBtn").onclick=()=>openModal('Privacy','<p>No account is required. The static site keeps the optional sankalp and listening minutes locally in the browser.</p>');
+$("sourcesBtn").onclick=()=>openModal('Audio Sources',`<p>Live Radio uses external 24×7 devotional broadcasts. They are not hosted by Anant Naad.</p><p><a href="https://tingfm.com/radio/25800" target="_blank" rel="noopener">Bhakti Sangeet</a><br><a href="https://tingfm.com/radio/26178" target="_blank" rel="noopener">Bhaktiworld Media Shiva</a><br><a href="https://tingfm.com/radio/26188" target="_blank" rel="noopener">Bhaktiworld Media Hanuman Ji</a><br><a href="https://tingfm.com/radio/26180" target="_blank" rel="noopener">Bhaktiworld Media Krishna</a><br><a href="https://tingfm.com/radio/26184" target="_blank" rel="noopener">Bhaktiworld Media Devi Maa</a></p>`);
 $("closeBtn").onclick=closeModal;$("modal").onclick=e=>{if(e.target===$("modal"))closeModal()};document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
-
-const groups=Object.keys(pantheon), filters=$("filters");filters.innerHTML=groups.map((g,i)=>`<button class="filter ${i===0?'active':''}" data-group="${g}">${groupMeta[g]} · ${g}</button>`).join('');
-const canvas=$("cosmos"),ctx=canvas.getContext('2d');let dpr=Math.min(devicePixelRatio||1,2),W=0,H=0,points=[];let activeGroup='Vasus';
-const colors={Vasus:'#e8b45d',Rudras:'#b9c7ff',Adityas:'#f3c77b',Completing:'#ff9b54'};
-function resize(){const r=canvas.getBoundingClientRect();W=r.width;H=r.height;canvas.width=W*dpr;canvas.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);buildPoints()}function buildPoints(){points=[];groups.forEach((g,gi)=>pantheon[g].forEach((name,i)=>{const angle=(i/pantheon[g].length)*Math.PI*2 + gi*.7;const radius=Math.min(W,H)*(.20+.10*gi);points.push({g,name,angle,radius,phase:Math.random()*Math.PI*2,speed:(gi%2?1:-1)*(.00012+.00004*i)})}))}
-function draw(){ctx.clearRect(0,0,W,H);const t=performance.now(),cx=W/2,cy=H/2;const bg=ctx.createRadialGradient(cx,cy,0,cx,cy,Math.min(W,H)*.5);bg.addColorStop(0,'rgba(255,210,120,.07)');bg.addColorStop(.5,'rgba(255,255,255,.018)');bg.addColorStop(1,'rgba(0,0,0,0)');ctx.fillStyle=bg;ctx.fillRect(0,0,W,H);
-for(let gi=0;gi<groups.length;gi++){ctx.beginPath();ctx.strokeStyle='rgba(255,255,255,.06)';ctx.lineWidth=1;ctx.arc(cx,cy,Math.min(W,H)*(.20+.10*gi),0,Math.PI*2);ctx.stroke()}
-points.forEach(p=>{p.angle+=p.speed*16;const x=cx+Math.cos(p.angle)*p.radius;const y=cy+Math.sin(p.angle)*p.radius*.72;const is=p.g===activeGroup;const r=is?4.2:2.4;ctx.beginPath();ctx.fillStyle=is?colors[p.g]:'rgba(255,255,255,.26)';ctx.arc(x,y,r,0,Math.PI*2);ctx.fill();if(is){ctx.beginPath();ctx.strokeStyle=colors[p.g]+'55';ctx.arc(x,y,11+Math.sin(t/350+p.phase)*2,0,Math.PI*2);ctx.stroke()}});
-ctx.beginPath();ctx.fillStyle=colors[activeGroup];ctx.shadowColor=colors[activeGroup];ctx.shadowBlur=24;ctx.arc(cx,cy,8+Math.sin(t/300)*1.8,0,Math.PI*2);ctx.fill();ctx.shadowBlur=0;
-requestAnimationFrame(draw)}
+const groups=Object.keys(pantheon),filters=$("filters");filters.innerHTML=groups.map((g,i)=>`<button class="filter ${i===0?'active':''}" data-group="${g}">${groupMeta[g]} · ${g}</button>`).join('');
+const canvas=$("cosmos"),ctx=canvas.getContext('2d');let dpr=Math.min(devicePixelRatio||1,2),W=0,H=0,points=[],activeGroup='Vasus';const colors={Vasus:'#e8b45d',Rudras:'#b9c7ff',Adityas:'#f3c77b',Completing:'#ff9b54'};
+function resize(){const r=canvas.getBoundingClientRect();W=r.width;H=r.height;canvas.width=W*dpr;canvas.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);buildPoints()}
+function buildPoints(){points=[];groups.forEach((g,gi)=>pantheon[g].forEach((name,i)=>{const angle=(i/pantheon[g].length)*Math.PI*2+gi*.7,radius=Math.min(W,H)*(.20+.10*gi);points.push({g,name,angle,radius,phase:Math.random()*Math.PI*2,speed:(gi%2?1:-1)*(.00012+.00004*i)})}))}
+function draw(){ctx.clearRect(0,0,W,H);const t=performance.now(),cx=W/2,cy=H/2,bg=ctx.createRadialGradient(cx,cy,0,cx,cy,Math.min(W,H)*.5);bg.addColorStop(0,'rgba(255,210,120,.07)');bg.addColorStop(.5,'rgba(255,255,255,.018)');bg.addColorStop(1,'rgba(0,0,0,0)');ctx.fillStyle=bg;ctx.fillRect(0,0,W,H);for(let gi=0;gi<groups.length;gi++){ctx.beginPath();ctx.strokeStyle='rgba(255,255,255,.06)';ctx.lineWidth=1;ctx.arc(cx,cy,Math.min(W,H)*(.20+.10*gi),0,Math.PI*2);ctx.stroke()}points.forEach(p=>{p.angle+=p.speed*16;const x=cx+Math.cos(p.angle)*p.radius,y=cy+Math.sin(p.angle)*p.radius*.72,is=p.g===activeGroup,r=is?4.2:2.4;ctx.beginPath();ctx.fillStyle=is?colors[p.g]:'rgba(255,255,255,.26)';ctx.arc(x,y,r,0,Math.PI*2);ctx.fill();if(is){ctx.beginPath();ctx.strokeStyle=colors[p.g]+'55';ctx.arc(x,y,11+Math.sin(t/350+p.phase)*2,0,Math.PI*2);ctx.stroke()}});ctx.beginPath();ctx.fillStyle=colors[activeGroup];ctx.shadowColor=colors[activeGroup];ctx.shadowBlur=24;ctx.arc(cx,cy,8+Math.sin(t/300)*1.8,0,Math.PI*2);ctx.fill();ctx.shadowBlur=0;requestAnimationFrame(draw)}
 window.addEventListener('resize',resize);resize();draw();document.querySelectorAll('.filter').forEach(b=>b.onclick=()=>{activeGroup=b.dataset.group;document.querySelectorAll('.filter').forEach(x=>x.classList.remove('active'));b.classList.add('active')});
-// tactile parallax on desktop; disabled on touch.
-if(matchMedia('(pointer:fine)').matches){const core=$("core"),stage=$("stage");stage.addEventListener('pointermove',e=>{const r=stage.getBoundingClientRect();const x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;core.style.transform=`perspective(900px) rotateX(${(-y*8).toFixed(2)}deg) rotateY(${(x*10).toFixed(2)}deg)`});stage.addEventListener('pointerleave',()=>core.style.transform='perspective(900px) rotateX(0) rotateY(0)')}
-
-// ritual cards
-function renderRituals(){const g=$("ritualsGrid");g.innerHTML=order.map(k=>{const s=station[k];return `<button class="ritual ${k===current?'active':''}" data-k="${k}"><div class="ritual-icon">${s.icon}</div><div class="ritual-title">${s.label}</div><div class="ritual-time">${String(s.start).padStart(2,'0')}:00 — ${String(s.end).padStart(2,'0')}:00</div><div class="ritual-mood">${s.mood}</div><div class="ritual-note">${s.subtitle}</div></button>`}).join('');document.querySelectorAll('.ritual').forEach(b=>b.onclick=()=>{const k=b.dataset.k;current=k;setTheme(k);idx=0;buildQueue();load(0,false);renderRituals();document.querySelector('#home').scrollIntoView({behavior:'smooth'})})}
-renderLiveGrid();setLiveStatus('Ready to tune',false);current=sessionKey();setTheme(current);buildQueue();load(0,false);renderRituals();daily();tick();setInterval(tick,1000);
+if(matchMedia('(pointer:fine)').matches){const core=$("core"),stage=$("stage");stage.addEventListener('pointermove',e=>{const r=stage.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;core.style.transform=`perspective(900px) rotateX(${(-y*8).toFixed(2)}deg) rotateY(${(x*10).toFixed(2)}deg)`});stage.addEventListener('pointerleave',()=>core.style.transform='perspective(900px) rotateX(0) rotateY(0)')}
+function renderLiveGrid(){$("radioGrid").innerHTML=LIVE_STREAMS.map(s=>`<button class="radio-card ${s.id===liveSource.id?'active':''}" data-live="${s.id}"><div class="radio-badge">24×7 LIVE</div><div class="radio-name">${s.name}</div><div class="radio-meta">${s.meta}</div><span class="radio-tune">${s.id===liveSource.id?'●':'↗'}</span></button>`).join('');document.querySelectorAll('[data-live]').forEach(b=>b.onclick=()=>{const i=LIVE_STREAMS.findIndex(x=>x.id===b.dataset.live);if(i>=0)startLiveRadio(i,true)})}
+function renderRituals(){const g=$("ritualsGrid");g.innerHTML=order.map(k=>{const s=station[k];return `<button class="ritual ${k===current?'active':''}" data-k="${k}"><div class="ritual-icon">${s.icon}</div><div class="ritual-title">${s.label}</div><div class="ritual-time">${String(s.start).padStart(2,'0')}:00 — ${String(s.end).padStart(2,'0')}:00</div><div class="ritual-mood">${s.mood}</div><div class="ritual-note">${s.subtitle}</div></button>`}).join('');document.querySelectorAll('.ritual').forEach(b=>b.onclick=()=>{const k=b.dataset.k;current=k;setTheme(k);idx=0;buildQueue();renderRituals();if(!liveMode){load(0,false)}document.querySelector('#home').scrollIntoView({behavior:'smooth'})})}
+current=sessionKey();setTheme(current);buildQueue();renderRituals();renderLiveGrid();setPlayerLiveText();setLiveStatus('Ready · tap Enter to start 24×7 radio',false);daily();tick=()=>{};
+function updateClock(){const d=new Date(),k=sessionKey();$("clock").textContent=d.toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'});$("clock2").textContent=d.toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'});$("nextShift").textContent=fmtRemain(remaining(k));if(k!==current){current=k;setTheme(k);buildQueue();renderRituals();if(!liveMode){load(0,false)}}}
+updateClock();setInterval(updateClock,1000);
 </script>
 
 <script id="micro-behaviour">
